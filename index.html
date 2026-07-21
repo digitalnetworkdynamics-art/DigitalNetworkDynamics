@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Digital Network Dynamics</title>
+<title>
+Digital Network Dynamics
+</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -17,50 +21,81 @@
 
 <header class="header">
 
+
 <div class="logo">
 DND
 </div>
+
 
 <h1>
 Digital Network Dynamics
 </h1>
 
+
 <p>
-Next generation digital ecosystem
+Building the future of decentralized digital technology
 </p>
 
 
+
+<div class="language">
+
+<select id="languageSelect">
+
+<option value="en">
+English
+</option>
+
+<option value="ru">
+Русский
+</option>
+
+<option value="ua">
+Українська
+</option>
+
+</select>
+
+</div>
+
+
+
 <nav>
+
 
 <button onclick="showSection('home')">
 Home
 </button>
 
+
 <button onclick="showSection('wallet')">
 Wallet
 </button>
+
 
 <button onclick="showSection('mining')">
 Mining
 </button>
 
+
 <button onclick="showSection('exchange')">
 Exchange
 </button>
+
+
+<button onclick="showSection('history')">
+History
+</button>
+
 
 <button onclick="showSection('roadmap')">
 Roadmap
 </button>
 
+
 <button onclick="showSection('team')">
 Team
 </button>
-
-</nav>
-<button onclick="showSection('history')">
-History
-</button>
-
 
 
 </nav>
@@ -72,41 +107,38 @@ History
 
 <main>
 
+
+
 <section id="home" class="page">
-<section class="hero">
+
+
+<div class="hero">
+
 
 <h2>
-Welcome to DND
+Welcome to DND Ecosystem
 </h2>
 
+
 <p>
-A modern digital ecosystem built for innovation and technology.
+A next generation digital network powered by innovation.
 </p>
 
 
-<button class="primary">
-Enter Ecosystem
+
+<button class="primary"
+onclick="showSection('wallet')">
+
+Open Wallet
+
 </button>
 
 
-</section>
-
-
-
-<section class="cards">
-
-
-<div class="card">
-
-<h3>
-Users
-</h3>
-
-<span>
-247,382
-</span>
-
 </div>
+
+
+
+<div class="cards">
 
 
 <div class="card">
@@ -115,11 +147,12 @@ Users
 Network
 </h3>
 
-<span>
-Active
-</span>
+<p>
+Active Ecosystem
+</p>
 
 </div>
+
 
 
 <div class="card">
@@ -128,24 +161,33 @@ Active
 Technology
 </h3>
 
-<span>
-Blockchain
-</span>
+<p>
+Digital Infrastructure
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Vision
+</h3>
+
+<p>
+Global Network
+</p>
+
+</div>
+
 
 </div>
 
 
 </section>
+<section id="wallet" class="page hidden">
 
-
-
-</main>
-
-</section>
-
-
-<section id="wallet" class="page">
-<section class="wallet-section">
 
 <h2>
 💼 DND Wallet
@@ -183,11 +225,10 @@ Blockchain
 
 
 
-
 <div class="wallet-card">
 
 <h3>
-₿ Bitcoin
+₿ BTC
 </h3>
 
 <p id="btcBalance">
@@ -195,7 +236,6 @@ Blockchain
 </p>
 
 </div>
-
 
 
 
@@ -212,12 +252,13 @@ Blockchain
 </div>
 
 
-
 </div>
 
 
 </section>
-</section>
+
+
+
 
 
 <section id="mining" class="page hidden">
@@ -228,13 +269,14 @@ Blockchain
 </h2>
 
 
-<div class="wallet-grid">
+
+<div class="cards">
 
 
-<div class="wallet-card">
+<div class="card">
 
 <h3>
-Mining Status
+Status
 </h3>
 
 <p id="miningStatus">
@@ -245,7 +287,7 @@ OFF
 
 
 
-<div class="wallet-card">
+<div class="card">
 
 <h3>
 Mining Speed
@@ -259,10 +301,10 @@ Mining Speed
 
 
 
-<div class="wallet-card">
+<div class="card">
 
 <h3>
-Mining Power
+Power
 </h3>
 
 <p id="miningPower">
@@ -276,27 +318,34 @@ Mining Power
 
 
 
-<br>
 
+<button class="primary"
+onclick="startMining()">
 
-<button onclick="startMining()">
 Start Mining
+
 </button>
 
 
-<button onclick="stopMining()">
+
+<button class="primary"
+onclick="stopMining()">
+
 Stop Mining
+
 </button>
 
 
 
-<div class="status-box" id="miningMessage">
+<div id="miningMessage"
+class="status-box">
 
 </div>
 
 
-
 </section>
+
+
 
 
 
@@ -312,24 +361,23 @@ Stop Mining
 <div class="exchange-box">
 
 
-<label>
-From
-</label>
-
-
 <select id="fromCurrency">
+
 
 <option value="DND">
 DND
 </option>
 
+
 <option value="USDT">
 USDT
 </option>
 
+
 <option value="BTC">
 BTC
 </option>
+
 
 <option value="TRX">
 TRX
@@ -340,12 +388,6 @@ TRX
 
 
 
-
-<label>
-To
-</label>
-
-
 <select id="toCurrency">
 
 
@@ -353,13 +395,16 @@ To
 USDT
 </option>
 
+
 <option value="DND">
 DND
 </option>
 
+
 <option value="BTC">
 BTC
 </option>
+
 
 <option value="TRX">
 TRX
@@ -377,7 +422,8 @@ placeholder="Amount">
 
 
 
-<button onclick="exchangeCurrency()">
+<button class="primary"
+onclick="exchangeCurrency()">
 
 Exchange
 
@@ -396,53 +442,196 @@ class="status-box">
 
 
 </section>
-
-
-
-<section id="roadmap" class="page hidden">
-
-<h2>
-🗺 Roadmap
-</h2>
-
-<p>
-Project development roadmap.
-</p>
-
-</section>
-
-
-
-<section id="team" class="page hidden">
-
-<h2>
-👥 Team
-</h2>
-
-<p>
-DND development team.
-</p>
-
-</section>
 <section id="history" class="page hidden">
+
 
 <h2>
 📜 Transaction History
 </h2>
 
 
-<div class="history-box" id="transactionHistory">
+<div id="transactionHistory" class="history-box">
 
-<p>
 No transactions yet
-</p>
 
 </div>
 
 
 </section>
+
+
+
+
+
+<section id="roadmap" class="page hidden">
+
+
+<h2>
+🗺 DND Roadmap
+</h2>
+
+
+
+<div class="roadmap">
+
+
+
+<div class="road-item">
+
+<h3>
+Phase 1 — Foundation
+</h3>
+
+<p>
+Project concept, research and ecosystem planning.
+</p>
+
+<span>
+Completed
+</span>
+
+</div>
+
+
+
+
+<div class="road-item">
+
+<h3>
+Phase 2 — Development
+</h3>
+
+<p>
+Building wallet, mining system and platform features.
+</p>
+
+<span>
+In Progress
+</span>
+
+</div>
+
+
+
+
+<div class="road-item">
+
+<h3>
+Phase 3 — Expansion
+</h3>
+
+<p>
+Community growth, partnerships and technology upgrades.
+</p>
+
+<span>
+Upcoming
+</span>
+
+</div>
+
+
+
+
+<div class="road-item">
+
+<h3>
+Phase 4 — Global Network
+</h3>
+
+<p>
+Long-term ecosystem development.
+</p>
+
+<span>
+Future
+</span>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="team" class="page hidden">
+
+
+<h2>
+👥 DND Team
+</h2>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Founder
+</h3>
+
+<p>
+Project Vision & Strategy
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Developers
+</h3>
+
+<p>
+Software & Technology
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Research Team
+</h3>
+
+<p>
+Innovation & Analytics
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+</main>
+
+
+
 <script src="app.js"></script>
 
+
 </body>
+
 
 </html>
