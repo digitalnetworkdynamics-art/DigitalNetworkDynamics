@@ -383,3 +383,40 @@ text-align:center;
 color:#ddd;
 
 }
+.exchange-box{
+
+max-width:500px;
+
+margin:30px auto;
+
+padding:30px;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:25px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+
+
+.exchange-box select,
+.exchange-box input{
+
+
+padding:15px;
+
+border-radius:15px;
+
+border:none;
+
+font-size:16px;
+
+
+}
