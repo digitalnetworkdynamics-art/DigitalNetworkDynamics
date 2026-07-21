@@ -11,6 +11,7 @@
 Digital Network Dynamics
 </title>
 
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -33,12 +34,10 @@ Digital Network Dynamics
 
 
 <p>
-Building the future of decentralized digital technology
+Decentralized Digital Ecosystem
 </p>
 
 
-
-<div class="language">
 
 <select id="languageSelect">
 
@@ -63,10 +62,6 @@ Building the future of decentralized digital technology
 </option>
 
 </select>
-
-</select>
-
-</div>
 
 
 
@@ -116,14 +111,10 @@ Team
 
 
 <main>
-
-
-
-<section id="home" class="page">
+ <section id="home" class="page">
 
 
 <div class="hero">
-
 
 <h2 id="welcomeText">
 Welcome to DND Ecosystem
@@ -131,15 +122,14 @@ Welcome to DND Ecosystem
 
 
 <p>
-A next generation digital network powered by innovation.
+A new generation of decentralized digital technology.
 </p>
 
 
-
 <button class="primary"
-onclick="showSection('wallet')">
+onclick="showSection('mining')">
 
-Open Wallet
+Start Mining
 
 </button>
 
@@ -147,55 +137,12 @@ Open Wallet
 </div>
 
 
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>
-Network
-</h3>
-
-<p>
-Active Ecosystem
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Technology
-</h3>
-
-<p>
-Digital Infrastructure
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Vision
-</h3>
-
-<p>
-Global Network
-</p>
-
-</div>
-
-
-</div>
-
-
 </section>
+
+
+
+
+
 <section id="wallet" class="page hidden">
 
 
@@ -204,7 +151,9 @@ Global Network
 </h2>
 
 
+
 <div class="wallet-grid">
+
 
 
 <div class="wallet-card">
@@ -235,6 +184,7 @@ Global Network
 
 
 
+
 <div class="wallet-card">
 
 <h3>
@@ -246,6 +196,7 @@ Global Network
 </p>
 
 </div>
+
 
 
 
@@ -262,10 +213,12 @@ Global Network
 </div>
 
 
+
 </div>
 
 
 </section>
+
 
 
 
@@ -286,7 +239,7 @@ Global Network
 <div class="card">
 
 <h3>
-Status
+Mining Status
 </h3>
 
 <p id="miningStatus">
@@ -300,32 +253,17 @@ OFF
 <div class="card">
 
 <h3>
-Mining Speed
+Speed
 </h3>
 
-<p id="miningSpeed">
-1x
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Power
-</h3>
-
-<p id="miningPower">
-100%
+<p>
+0.01 DND/sec
 </p>
 
 </div>
 
 
 </div>
-
 
 
 
@@ -347,15 +285,8 @@ Stop Mining
 
 
 
-<div id="miningMessage"
-class="status-box">
-
-</div>
-
-
-</section>
-
-
+</section> 
+  </section>
 
 
 
@@ -363,7 +294,7 @@ class="status-box">
 
 
 <h2>
-🔄 DND Exchange
+🔄 Exchange
 </h2>
 
 
@@ -441,10 +372,9 @@ Exchange
 
 
 
-<div id="exchangeMessage"
-class="status-box">
+<p id="exchangeMessage">
 
-</div>
+</p>
 
 
 
@@ -452,6 +382,12 @@ class="status-box">
 
 
 </section>
+
+
+
+
+
+
 <section id="history" class="page hidden">
 
 
@@ -473,6 +409,68 @@ No transactions yet
 
 
 
+
+
+<section id="deposit" class="page hidden">
+
+
+<h2>
+💰 Deposit DND
+</h2>
+
+
+<input 
+id="depositAmount"
+type="number"
+placeholder="Amount">
+
+
+
+<button class="primary"
+onclick="depositDND(document.getElementById('depositAmount').value)">
+
+Deposit
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="withdraw" class="page hidden">
+
+
+<h2>
+📤 Withdraw DND
+</h2>
+
+
+<input 
+id="withdrawAmount"
+type="number"
+placeholder="Amount">
+
+
+
+<button class="primary"
+onclick="withdrawDND(document.getElementById('withdrawAmount').value)">
+
+Withdraw
+
+</button>
+
+
+</section>
+</section>
+
+
+
+
 <section id="roadmap" class="page hidden">
 
 
@@ -485,7 +483,6 @@ No transactions yet
 <div class="roadmap">
 
 
-
 <div class="road-item">
 
 <h3>
@@ -493,15 +490,10 @@ Phase 1 — Foundation
 </h3>
 
 <p>
-Project concept, research and ecosystem planning.
+Project creation, concept and ecosystem planning.
 </p>
 
-<span>
-Completed
-</span>
-
 </div>
-
 
 
 
@@ -512,15 +504,10 @@ Phase 2 — Development
 </h3>
 
 <p>
-Building wallet, mining system and platform features.
+Wallet, mining and platform development.
 </p>
 
-<span>
-In Progress
-</span>
-
 </div>
-
 
 
 
@@ -531,15 +518,10 @@ Phase 3 — Expansion
 </h3>
 
 <p>
-Community growth, partnerships and technology upgrades.
+Community growth and global partnerships.
 </p>
 
-<span>
-Upcoming
-</span>
-
 </div>
-
 
 
 
@@ -550,12 +532,8 @@ Phase 4 — Global Network
 </h3>
 
 <p>
-Long-term ecosystem development.
+Building a worldwide decentralized ecosystem.
 </p>
-
-<span>
-Future
-</span>
 
 </div>
 
@@ -565,6 +543,7 @@ Future
 
 
 </section>
+
 
 
 
@@ -589,7 +568,7 @@ Founder
 </h3>
 
 <p>
-Project Vision & Strategy
+Vision and Strategy
 </p>
 
 </div>
@@ -604,7 +583,7 @@ Developers
 </h3>
 
 <p>
-Software & Technology
+Technology and Software
 </p>
 
 </div>
@@ -615,11 +594,11 @@ Software & Technology
 <div class="card">
 
 <h3>
-Research Team
+Research
 </h3>
 
 <p>
-Innovation & Analytics
+Innovation and Analytics
 </p>
 
 </div>
@@ -633,12 +612,13 @@ Innovation & Analytics
 
 
 
-
 </main>
 
 
 
-<script src="app.js?v=2"></script>
+<script src="app.js"></script>
+
 
 </body>
+
 </html>
