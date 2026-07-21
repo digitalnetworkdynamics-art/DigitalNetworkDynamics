@@ -67,7 +67,11 @@ let user = {
     TRX: 0
 
 };
+let miningActive = false;
 
+let miningSpeed = 0.1;
+
+let miningTimer = null;
 
 
 
@@ -487,3 +491,97 @@ alert("Language changed: " + this.value);
 }
 
 };
+function startMining(){
+
+
+if(miningActive){
+
+return;
+
+}
+
+
+miningActive = true;
+
+
+
+let status =
+document.getElementById("miningStatus");
+
+
+if(status){
+
+status.innerHTML = "ACTIVE";
+
+}
+
+
+
+miningTimer = setInterval(function(){
+
+
+user.DND += miningSpeed;
+
+
+
+updateWallet();
+
+
+
+},1000);
+
+
+
+}
+
+
+
+function stopMining(){
+
+
+miningActive = false;
+
+
+
+if(miningTimer){
+
+clearInterval(miningTimer);
+
+}
+
+
+
+let status =
+document.getElementById("miningStatus");
+
+
+if(status){
+
+status.innerHTML = "OFF";
+
+}
+
+
+}
+
+
+
+
+function updateWallet(){
+
+
+let dnd =
+document.getElementById("dndBalance");
+
+
+
+if(dnd){
+
+dnd.innerHTML =
+user.DND.toFixed(2);
+
+}
+
+
+
+}
