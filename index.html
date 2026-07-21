@@ -219,13 +219,79 @@ Blockchain
 
 <section id="mining" class="page hidden">
 
+
 <h2>
-⛏ Mining
+⛏ DND Mining
 </h2>
 
-<p>
-DND mining system will be available here.
+
+<div class="wallet-grid">
+
+
+<div class="wallet-card">
+
+<h3>
+Mining Status
+</h3>
+
+<p id="miningStatus">
+OFF
 </p>
+
+</div>
+
+
+
+<div class="wallet-card">
+
+<h3>
+Mining Speed
+</h3>
+
+<p id="miningSpeed">
+1x
+</p>
+
+</div>
+
+
+
+<div class="wallet-card">
+
+<h3>
+Mining Power
+</h3>
+
+<p id="miningPower">
+100%
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<br>
+
+
+<button onclick="startMining()">
+Start Mining
+</button>
+
+
+<button onclick="stopMining()">
+Stop Mining
+</button>
+
+
+
+<div class="status-box" id="miningMessage">
+
+</div>
+
+
 
 </section>
 
