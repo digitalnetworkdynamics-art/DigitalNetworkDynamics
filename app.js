@@ -227,3 +227,58 @@ active.classList.remove("hidden");
 
 
 }
+let miningInterval;
+
+
+function startMining(){
+
+
+document.getElementById(
+"miningStatus"
+).innerHTML="ACTIVE";
+
+
+document.getElementById(
+"miningMessage"
+).innerHTML=
+"Mining started";
+
+
+miningInterval =
+setInterval(function(){
+
+
+user.DND += 0.01;
+
+
+saveUser();
+
+updateWallet();
+
+
+},1000);
+
+
+}
+
+
+
+function stopMining(){
+
+
+clearInterval(miningInterval);
+
+
+
+document.getElementById(
+"miningStatus"
+).innerHTML="OFF";
+
+
+document.getElementById(
+"miningMessage"
+).innerHTML=
+"Mining stopped";
+
+
+}
