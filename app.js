@@ -407,9 +407,6 @@ document.getElementById(
 
 
 }
-document
-.getElementById("languageSelect")
-.addEventListener("change", function(){
 
 currentLanguage = this.value;
 
@@ -421,5 +418,56 @@ localStorage.setItem(
 "DND_language",
 currentLanguage
 );
+
+});
+document.getElementById("languageSelect").addEventListener("change", function(){
+
+let lang = this.value;
+
+
+let title = document.querySelector(".hero h2");
+
+
+if(lang === "en"){
+
+title.innerHTML = "Welcome to DND Ecosystem";
+
+}
+
+
+if(lang === "fr"){
+
+title.innerHTML = "Bienvenue dans l'écosystème DND";
+
+}
+
+
+if(lang === "zh"){
+
+title.innerHTML = "欢迎来到DND生态系统";
+
+}
+
+
+if(lang === "pl"){
+
+title.innerHTML = "Witamy w ekosystemie DND";
+
+}
+
+
+if(lang === "es"){
+
+title.innerHTML = "Bienvenido al ecosistema DND";
+
+}
+
+
+
+localStorage.setItem(
+"DND_language",
+lang
+);
+
 
 });
