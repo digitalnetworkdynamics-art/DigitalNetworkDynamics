@@ -585,3 +585,27 @@ user.DND.toFixed(2);
 
 
 }
+function showSection(sectionId){
+
+let pages = document.querySelectorAll(".page");
+
+
+pages.forEach(function(page){
+
+page.classList.add("hidden");
+
+});
+
+
+
+let selected = document.getElementById(sectionId);
+
+
+if(selected){
+
+selected.classList.remove("hidden");
+
+}
+
+
+}
