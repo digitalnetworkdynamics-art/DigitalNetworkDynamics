@@ -282,3 +282,79 @@ document.getElementById(
 
 
 }
+function exchangeCurrency(){
+
+
+let from =
+document.getElementById(
+"fromCurrency"
+).value;
+
+
+
+let to =
+document.getElementById(
+"toCurrency"
+).value;
+
+
+
+let amount =
+Number(
+document.getElementById(
+"exchangeAmount"
+).value
+);
+
+
+
+if(!amount || amount<=0){
+
+document.getElementById(
+"exchangeMessage"
+).innerHTML=
+"Enter amount";
+
+return;
+
+}
+
+
+
+if(user[from] < amount){
+
+document.getElementById(
+"exchangeMessage"
+).innerHTML=
+"Not enough balance";
+
+return;
+
+}
+
+
+// DEMO RATE
+
+let result =
+amount;
+
+
+
+user[from]-=amount;
+
+user[to]+=result;
+
+
+saveUser();
+
+updateWallet();
+
+
+
+document.getElementById(
+"exchangeMessage"
+).innerHTML=
+"Exchange completed";
+
+
+}
