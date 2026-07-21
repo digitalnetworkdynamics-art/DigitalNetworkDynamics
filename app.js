@@ -36,6 +36,8 @@ function(){
 
     loadUser();
 
+updateWallet();
+
 
 });
 
@@ -89,7 +91,73 @@ console.log(user);
 
 
 }
+// UPDATE WALLET DISPLAY
 
+function updateWallet(){
+
+
+let dnd =
+document.getElementById(
+"dndBalance"
+);
+
+
+let usdt =
+document.getElementById(
+"usdtBalance"
+);
+
+
+let btc =
+document.getElementById(
+"btcBalance"
+);
+
+
+let trx =
+document.getElementById(
+"trxBalance"
+);
+
+
+
+if(dnd){
+
+dnd.innerHTML =
+user.DND.toFixed(4);
+
+}
+
+
+
+if(usdt){
+
+usdt.innerHTML =
+user.USDT.toFixed(4);
+
+}
+
+
+
+if(btc){
+
+btc.innerHTML =
+user.BTC.toFixed(8);
+
+}
+
+
+
+if(trx){
+
+trx.innerHTML =
+user.TRX.toFixed(4);
+
+}
+
+
+
+}
 
 
 
