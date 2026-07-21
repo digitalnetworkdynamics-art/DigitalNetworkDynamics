@@ -1078,165 +1078,300 @@ saveData();
 
 
 }
-
-
-
-
-
-
-
-// LANGUAGE SYSTEM PLACEHOLDER
-
+// ==========================
+// DND MULTI LANGUAGE SYSTEM
+// ==========================
 
 
 const translations = {
 
 
-en:{
+en: {
 
+home: "Home",
+wallet: "Wallet",
+mining: "Mining",
+exchange: "Exchange",
+history: "History",
+roadmap: "Roadmap",
+team: "Team",
 
-home:"Home",
+title:
+"Digital Network Dynamics",
 
-wallet:"Wallet",
+subtitle:
+"The Future Of Digital Dynamics",
 
-mining:"Mining",
+walletTitle:
+"DND Wallet",
 
-exchange:"Exchange",
+miningTitle:
+"DND Mining",
 
-history:"History"
+exchangeTitle:
+"Exchange",
 
+support:
+"Support Center",
+
+supportText:
+"Need help? Contact our support team",
+
+startMining:
+"Start Mining",
+
+stopMining:
+"Stop",
+
+deposit:
+"Deposit",
+
+withdraw:
+"Withdraw"
 
 },
 
 
 
-fr:{
+fr: {
 
+home: "Accueil",
+wallet: "Portefeuille",
+mining: "Minage",
+exchange: "Échange",
+history: "Historique",
+roadmap: "Feuille de route",
+team: "Équipe",
 
-home:"Accueil",
+title:
+"Digital Network Dynamics",
 
-wallet:"Portefeuille",
+subtitle:
+"L'avenir des technologies numériques",
 
-mining:"Minage",
+walletTitle:
+"Portefeuille DND",
 
-exchange:"Échange",
+miningTitle:
+"Minage DND",
 
-history:"Historique"
+exchangeTitle:
+"Échange",
 
+support:
+"Centre de support",
+
+supportText:
+"Besoin d'aide ? Contactez notre équipe",
+
+startMining:
+"Commencer le minage",
+
+stop:
+"Arrêter",
+
+deposit:
+"Dépôt",
+
+withdraw:
+"Retrait"
 
 },
 
 
 
-zh:{
-
+zh: {
 
 home:"主页",
-
 wallet:"钱包",
-
 mining:"挖矿",
-
 exchange:"兑换",
+history:"历史",
+roadmap:"路线图",
+team:"团队",
 
-history:"历史"
+title:
+"数字网络动态",
 
+subtitle:
+"未来数字生态系统",
+
+walletTitle:
+"DND钱包",
+
+miningTitle:
+"DND挖矿",
+
+exchangeTitle:
+"兑换中心",
+
+support:
+"支持中心",
+
+supportText:
+"需要帮助？联系我们",
+
+startMining:
+"开始挖矿",
+
+stop:
+"停止",
+
+deposit:
+"充值",
+
+withdraw:
+"提现"
 
 },
 
 
 
-pl:{
-
+pl: {
 
 home:"Strona główna",
-
 wallet:"Portfel",
-
 mining:"Kopanie",
-
 exchange:"Wymiana",
+history:"Historia",
+roadmap:"Mapa drogowa",
+team:"Zespół",
 
-history:"Historia"
+title:
+"Digital Network Dynamics",
 
+subtitle:
+"Przyszłość cyfrowego ekosystemu",
+
+walletTitle:
+"Portfel DND",
+
+miningTitle:
+"Kopanie DND",
+
+exchangeTitle:
+"Wymiana",
+
+support:
+"Centrum wsparcia",
+
+supportText:
+"Potrzebujesz pomocy? Skontaktuj się z nami",
+
+startMining:
+"Rozpocznij kopanie",
+
+stop:
+"Stop",
+
+deposit:
+"Wpłata",
+
+withdraw:
+"Wypłata"
 
 },
 
 
 
-es:{
-
+es: {
 
 home:"Inicio",
-
 wallet:"Billetera",
-
 mining:"Minería",
-
 exchange:"Intercambio",
+history:"Historial",
+roadmap:"Hoja de ruta",
+team:"Equipo",
 
-history:"Historial"
+title:
+"Digital Network Dynamics",
 
+subtitle:
+"El futuro del ecosistema digital",
+
+walletTitle:
+"Billetera DND",
+
+miningTitle:
+"Minería DND",
+
+exchangeTitle:
+"Intercambio",
+
+support:
+"Centro de soporte",
+
+supportText:
+"¿Necesitas ayuda? Contacta con nosotros",
+
+startMining:
+"Iniciar minería",
+
+stop:
+"Detener",
+
+deposit:
+"Depositar",
+
+withdraw:
+"Retirar"
 
 }
 
 
 };
+// ==========================
+// APPLY LANGUAGE
+// ==========================
+
+
+function applyLanguage(){
+
+
+
+let lang = walletData.language || "en";
+
+
+
+let text = translations[lang];
+
+
+
+if(!text){
+
+return;
+
+}
 
 
 
 
 
 
-
-function changeLanguage(lang){
-
-
-
-walletData.language = lang;
-
-
-saveData();
+document.querySelectorAll("[data-i18n]")
+.forEach(function(element){
 
 
 
-let buttons =
-document.querySelectorAll(
-".navigation button"
+let key = element.getAttribute(
+"data-i18n"
 );
 
 
 
-if(translations[lang]){
+if(text[key]){
 
 
-
-buttons[0].innerHTML =
-translations[lang].home;
-
-
-
-buttons[1].innerHTML =
-translations[lang].wallet;
-
-
-
-buttons[2].innerHTML =
-translations[lang].mining;
-
-
-
-buttons[3].innerHTML =
-translations[lang].exchange;
-
-
-
-buttons[4].innerHTML =
-translations[lang].history;
-
+element.innerHTML =
+text[key];
 
 
 }
+
+
+
+});
 
 
 
@@ -1247,18 +1382,33 @@ translations[lang].history;
 
 
 
-let select =
+
+
+
+// ==========================
+// LANGUAGE SELECT
+// ==========================
+
+
+const language =
 document.getElementById(
 "languageSelect"
 );
 
 
 
-if(select){
+if(language){
 
 
 
-select.addEventListener(
+language.value =
+walletData.language || "en";
+
+
+
+
+
+language.addEventListener(
 
 "change",
 
@@ -1266,9 +1416,16 @@ function(){
 
 
 
-changeLanguage(
-this.value
-);
+walletData.language =
+this.value;
+
+
+
+saveData();
+
+
+
+applyLanguage();
 
 
 
@@ -1279,3 +1436,29 @@ this.value
 
 
 }
+
+
+
+
+
+
+
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+
+applyLanguage();
+
+
+}
+
+);
+
+
+
+
+
