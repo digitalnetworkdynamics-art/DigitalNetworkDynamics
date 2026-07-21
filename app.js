@@ -472,3 +472,18 @@ lang
 
 });
 console.log("DND app loaded");
+window.onload = function(){
+
+const language = document.getElementById("languageSelect");
+
+if(language){
+
+language.addEventListener("change", function(){
+
+alert("Language changed: " + this.value);
+
+});
+
+}
+
+};
