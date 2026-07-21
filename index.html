@@ -1,86 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Digital Network Dynamics | DND</title>
 
+<meta name="description" content="Digital Network Dynamics - Web3 ecosystem, DND mining, digital economy and blockchain innovation.">
+
+<meta name="keywords" content="DND, Digital Network Dynamics, Web3, Blockchain, Mining">
+
 <style>
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
 font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#05000f,#18002f,#090015);
+background:
+linear-gradient(135deg,#05000f,#22003d,#070012);
 color:white;
 }
+
 
 header{
 text-align:center;
 padding:40px 20px;
 }
 
+
 .logo{
-font-size:70px;
+font-size:80px;
 font-weight:900;
-color:#b44cff;
-text-shadow:0 0 25px #b44cff;
+color:#c35cff;
+text-shadow:0 0 35px #c35cff;
 }
 
-.card{
-background:rgba(255,255,255,0.08);
-margin:20px;
-padding:25px;
-border-radius:25px;
-box-shadow:0 0 25px rgba(150,0,255,.3);
+
+header p{
+font-size:18px;
+color:#ccc;
 }
+
+
 
 nav{
+
 display:flex;
 justify-content:center;
-gap:10px;
 flex-wrap:wrap;
+gap:12px;
+padding:20px;
+
 }
+
+
 
 button{
-background:#8c00ff;
-color:white;
+
+background:
+linear-gradient(135deg,#9b00ff,#5100ff);
+
 border:0;
+
+color:white;
+
 padding:14px 25px;
+
 border-radius:15px;
-cursor:pointer;
+
 font-weight:bold;
+
+cursor:pointer;
+
 }
+
+
 
 button:hover{
-background:#b44cff;
+
+transform:scale(1.05);
+
 }
+
+
+
+.card{
+
+margin:20px;
+
+padding:30px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 30px rgba(160,0,255,.3);
+
+}
+
+
 
 .hidden{
+
 display:none;
+
 }
 
-.balance{
+
+
+.number{
+
 font-size:45px;
-color:#d98cff;
+
+font-weight:bold;
+
+color:#d78cff;
+
 }
+
+
 
 input{
+
 width:90%;
+
 padding:12px;
-margin:7px;
+
+margin:8px;
+
 border-radius:10px;
+
 border:0;
+
 }
 
+
+
 .green{
+
 color:#00ff99;
+
 }
+
+
 
 </style>
 
+
 </head>
+
 
 <body>
 
@@ -96,20 +172,45 @@ Digital Network Dynamics
 </h1>
 
 <p>
-Building the future of digital economy
+The Future Digital Economy
 </p>
+
 
 </header>
 
 
+
 <nav>
 
-<button onclick="openTab('home')">Home</button>
-<button onclick="openTab('mining')">Mining</button>
-<button onclick="openTab('wallet')">Wallet</button>
-<button onclick="openTab('account')">Account</button>
-<button onclick="openTab('about')">Project</button>
-<button onclick="openTab('support')">Support</button>
+<button onclick="openPage('home')">
+Home
+</button>
+
+
+<button onclick="openPage('mining')">
+Mining
+</button>
+
+
+<button onclick="openPage('wallet')">
+Wallet
+</button>
+
+
+<button onclick="openPage('account')">
+Account
+</button>
+
+
+<button onclick="openPage('project')">
+Project
+</button>
+
+
+<button onclick="openPage('support')">
+Support
+</button>
+
 
 </nav>
 
@@ -117,15 +218,31 @@ Building the future of digital economy
 
 <div id="home" class="card">
 
-<h2>Welcome to DND</h2>
+
+<h2>
+🌐 Welcome to DND
+</h2>
+
 
 <p>
-Digital Network Dynamics is a next generation Web3 ecosystem.
+Digital Network Dynamics is building a global Web3 ecosystem focused on digital technologies, decentralized solutions and community growth.
 </p>
 
+
+<h2>
+👥 Active Users
+</h2>
+
+
+<div id="users" class="number">
+247382
+</div>
+
+
 <p>
-Our goal is to create accessible digital technologies and a global community.
+Users worldwide
 </p>
+
 
 </div>
 
@@ -133,25 +250,24 @@ Our goal is to create accessible digital technologies and a global community.
 
 <div id="mining" class="card hidden">
 
-<h2>⛏ DND Mining</h2>
 
-<p>Status:</p>
-
-<h3 id="status">
-Inactive
-</h3>
-
-
-<p>Balance:</p>
-
-<div id="balance" class="balance">
-0.000000 DND
-</div>
+<h2>
+⛏ DND Mining
+</h2>
 
 
 <p>
-Mining speed:
-0.000069 DND/sec
+Balance:
+</p>
+
+
+<div id="balance" class="number">
+0 DND
+</div>
+
+
+<p id="status">
+Inactive
 </p>
 
 
@@ -159,32 +275,36 @@ Mining speed:
 START MINING
 </button>
 
+
 <button onclick="stopMining()">
-STOP
+STOP MINING
 </button>
 
 
 </div>
-
-
-
 <div id="wallet" class="card hidden">
 
-<h2>💼 Wallet</h2>
+<h2>
+💼 DND Wallet
+</h2>
 
-<p>Your DND address:</p>
+<p>
+Your wallet address:
+</p>
 
 <h3 id="walletAddress">
+Generating...
 </h3>
 
 
 <p>
-Balance:
+Current balance:
 </p>
 
-<h2 id="walletBalance">
+<div id="walletBalance" class="number">
 0 DND
-</h2>
+</div>
+
 
 </div>
 
@@ -193,28 +313,39 @@ Balance:
 
 <div id="account" class="card hidden">
 
-<h2>👤 Personal Account</h2>
+
+<h2>
+👤 Personal Account
+</h2>
 
 
-<p>DND ID:</p>
+<p>
+Your DND ID:
+</p>
 
-<h3 id="dndID"></h3>
+
+<h3 id="dndID">
+</h3>
+
 
 
 <input id="username" placeholder="Username">
 
+
 <input id="email" placeholder="Email">
 
 
-<input id="password" placeholder="Password" type="password">
+<input id="password" type="password" placeholder="Password">
 
 
-<button onclick="register()">
-Create Account
+
+<button onclick="createAccount()">
+CREATE ACCOUNT
 </button>
 
 
-<h3 id="accountInfo"></h3>
+<h3 id="accountResult">
+</h3>
 
 
 </div>
@@ -222,47 +353,73 @@ Create Account
 
 
 
-<div id="about" class="card hidden">
 
-<h2>🌐 About DND</h2>
+<div id="project" class="card hidden">
+
+
+<h2>
+🚀 About Digital Network Dynamics
+</h2>
+
 
 <p>
-Digital Network Dynamics is a technology project focused on digital identity, decentralized systems and Web3 innovation.
+Digital Network Dynamics (DND) is a next generation digital ecosystem designed to connect users with Web3 technologies.
 </p>
 
 
-<h3>Roadmap</h3>
+<h3>
+Our Vision
+</h3>
+
 
 <p>
-Phase 1 — Community & Mining Prototype
+Create accessible digital tools, decentralized solutions and a global digital community.
 </p>
 
-<p>
-Phase 2 — Wallet & User Platform
-</p>
+
+<h3>
+Roadmap
+</h3>
+
 
 <p>
-Phase 3 — Blockchain Ecosystem
-</p>
+🟣 Phase 1 — Website and Mining Prototype</p>
+
+<p>
+🟣 Phase 2 — User Accounts and Wallet System</p>
+
+<p>
+🟣 Phase 3 — Blockchain Development</p>
+
+<p>
+🟣 Phase 4 — Global DND Ecosystem</p>
 
 
 </div>
+
 
 
 
 
 <div id="support" class="card hidden">
 
-<h2>📩 Support</h2>
+
+<h2>
+📩 Support
+</h2>
+
 
 <p>
-digitalnetworkdynamics@gmail.com
+Digital Network Dynamics Support:
 </p>
 
+
+<h3>
+digitalnetworkdynamics@gmail.com
+</h3>
+
+
 </div>
-
-
-
 <script>
 
 
@@ -270,18 +427,21 @@ let balance =
 Number(localStorage.getItem("DND_balance")) || 0;
 
 
-let mining=false;
-let timer;
+let mining = false;
+
+let miningTimer;
 
 
 
-function update(){
+function updateBalance(){
 
 document.getElementById("balance").innerHTML =
 balance.toFixed(6)+" DND";
 
+
 document.getElementById("walletBalance").innerHTML =
 balance.toFixed(6)+" DND";
+
 
 }
 
@@ -289,19 +449,26 @@ balance.toFixed(6)+" DND";
 
 function startMining(){
 
-if(mining)return;
+
+if(mining) return;
+
 
 mining=true;
 
-document.getElementById("status").innerHTML="ACTIVE";
 
-document.getElementById("status").className="green";
-
-
-timer=setInterval(()=>{
+document.getElementById("status").innerHTML =
+"ACTIVE";
 
 
-balance +=0.000069;
+document.getElementById("status").className =
+"green";
+
+
+
+miningTimer=setInterval(function(){
+
+
+balance += 0.000069;
 
 
 localStorage.setItem(
@@ -310,89 +477,130 @@ balance
 );
 
 
-update();
+updateBalance();
+
 
 
 },1000);
 
 
+
 }
+
 
 
 
 function stopMining(){
 
+
 mining=false;
 
-clearInterval(timer);
 
-document.getElementById("status").innerHTML="Inactive";
+clearInterval(miningTimer);
+
+
+document.getElementById("status").innerHTML =
+"Inactive";
+
 
 }
 
 
 
-function openTab(id){
 
-let tabs=[
+function openPage(page){
+
+
+let pages=[
+
 "home",
 "mining",
 "wallet",
 "account",
-"about",
+"project",
 "support"
+
 ];
 
 
-tabs.forEach(t=>{
-document.getElementById(t)
+pages.forEach(function(item){
+
+
+document.getElementById(item)
 .classList.add("hidden");
+
+
 });
 
 
-document.getElementById(id)
+
+document.getElementById(page)
 .classList.remove("hidden");
 
-}
-
-
-
-
-function register(){
-
-let name=document.getElementById("username").value;
-
-let email=document.getElementById("email").value;
-
-
-localStorage.setItem("DND_user",name);
-
-localStorage.setItem("DND_email",email);
-
-
-document.getElementById("accountInfo").innerHTML=
-"Account created: "+name;
-
 
 }
 
 
 
 
-function init(){
+function createAccount(){
 
-let id=localStorage.getItem("DND_ID");
+
+let username =
+document.getElementById("username").value;
+
+
+let email =
+document.getElementById("email").value;
+
+
+localStorage.setItem(
+"DND_username",
+username
+);
+
+
+localStorage.setItem(
+"DND_email",
+email
+);
+
+
+
+document.getElementById("accountResult").innerHTML =
+"Account created successfully";
+
+
+
+}
+
+
+
+
+
+function createID(){
+
+
+let id =
+localStorage.getItem("DND_ID");
 
 
 if(!id){
 
-id="DND-"+Math.random()
+
+id =
+"DND-"+Math.random()
 .toString(36)
 .substring(2,10)
 .toUpperCase();
 
 
-localStorage.setItem("DND_ID",id);
+
+localStorage.setItem(
+"DND_ID",
+id
+);
+
 
 }
 
@@ -400,36 +608,121 @@ localStorage.setItem("DND_ID",id);
 document.getElementById("dndID").innerHTML=id;
 
 
+}
 
-let wallet=localStorage.getItem("DND_wallet");
+
+
+
+
+function createWallet(){
+
+
+let wallet =
+localStorage.getItem("DND_wallet");
+
 
 
 if(!wallet){
 
-wallet="DND-"+Math.random()
+
+wallet =
+"DND-"+Math.random()
 .toString(36)
 .substring(2,14)
 .toUpperCase();
 
 
-localStorage.setItem("DND_wallet",wallet);
+
+localStorage.setItem(
+"DND_wallet",
+wallet
+);
+
+
 
 }
 
 
-document.getElementById("walletAddress").innerHTML=wallet;
+
+document.getElementById("walletAddress").innerHTML =
+wallet;
 
 
-update();
 
 }
 
 
-init();
+
+
+// Active Users counter
+
+
+let users =
+Number(localStorage.getItem("DND_users"))
+||247382;
+
+
+
+function updateUsers(){
+
+
+let increase =
+Math.floor(Math.random()*101)+200;
+
+
+users += increase;
+
+
+
+localStorage.setItem(
+"DND_users",
+users
+);
+
+
+
+document.getElementById("users").innerHTML =
+users.toLocaleString();
+
+
+
+}
+
+
+
+
+function load(){
+
+
+createID();
+
+createWallet();
+
+updateBalance();
+
+updateUsers();
+
+
+
+setInterval(function(){
+
+updateUsers();
+
+},3600000);
+
+
+
+}
+
+
+
+load();
+
 
 
 </script>
 
 
 </body>
+
 </html>
