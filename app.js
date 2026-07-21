@@ -471,3 +471,4 @@ lang
 
 
 });
+console.log("DND app loaded");
