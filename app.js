@@ -198,3 +198,32 @@ page
 
 
 }
+function showSection(id){
+
+
+let pages =
+document.querySelectorAll(".page");
+
+
+pages.forEach(function(page){
+
+page.classList.add("hidden");
+
+});
+
+
+
+let active =
+document.getElementById(id);
+
+
+
+if(active){
+
+active.classList.remove("hidden");
+
+}
+
+
+
+}
