@@ -7,12 +7,14 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>
-Digital Network Dynamics
+Digital Network Dynamics | DND
 </title>
 
 
 <link rel="stylesheet" href="style.css">
+
 
 </head>
 
@@ -20,124 +22,235 @@ Digital Network Dynamics
 <body>
 
 
-<header class="header">
+<div class="background-glow"></div>
 
 
-<div class="logo">
-DND
+
+<header class="top-header">
+
+
+<div class="brand">
+
+
+<div class="logo-emblem">
+
+<span>D</span>
+
 </div>
 
 
+<div class="brand-text">
+
 <h1>
-Digital Network Dynamics
+DND
 </h1>
 
-
 <p>
-Decentralized Digital Ecosystem
+Digital Network Dynamics
 </p>
+
+</div>
+
+
+</div>
 
 
 
 <select id="languageSelect">
 
+
 <option value="en">
 🇬🇧 English
 </option>
+
 
 <option value="fr">
 🇫🇷 Français
 </option>
 
+
 <option value="zh">
 🇨🇳 中文
 </option>
+
 
 <option value="pl">
 🇵🇱 Polski
 </option>
 
+
 <option value="es">
 🇪🇸 Español
 </option>
 
+
 </select>
-
-
-
-<nav>
-
-
-<button onclick="showSection('home')">
-Home
-</button>
-
-
-<button onclick="showSection('wallet')">
-Wallet
-</button>
-
-
-<button onclick="showSection('mining')">
-Mining
-</button>
-
-
-<button onclick="showSection('exchange')">
-Exchange
-</button>
-
-
-<button onclick="showSection('history')">
-History
-</button>
-
-
-<button onclick="showSection('roadmap')">
-Roadmap
-</button>
-
-
-<button onclick="showSection('team')">
-Team
-</button>
-
-
-</nav>
 
 
 </header>
 
 
 
-<main>
+
+
+<nav class="navigation">
+
+
+<button onclick="openPage('home')">
+Home
+</button>
+
+
+<button onclick="openPage('wallet')">
+Wallet
+</button>
+
+
+<button onclick="openPage('mining')">
+Mining
+</button>
+
+
+<button onclick="openPage('exchange')">
+Exchange
+</button>
+
+
+<button onclick="openPage('history')">
+History
+</button>
+
+
+<button onclick="openPage('roadmap')">
+Roadmap
+</button>
+
+
+<button onclick="openPage('team')">
+Team
+</button>
+
+
+
+</nav>
+
+
+
+
+
+<main class="container">
  <section id="home" class="page">
 
 
-<div class="hero">
+<div class="hero-card">
 
-<h2 id="welcomeText">
-Welcome to DND Ecosystem
+
+<div class="hero-logo">
+
+<div class="big-emblem">
+DND
+</div>
+
+
+</div>
+
+
+
+<h2>
+The Future Of Digital Dynamics
 </h2>
 
 
+
 <p>
-A new generation of decentralized digital technology.
+A decentralized ecosystem combining mining, wallet technology, digital assets and global connectivity.
 </p>
 
 
-<button class="primary"
-onclick="showSection('mining')">
+
+
+<div class="hero-buttons">
+
+
+<button class="main-button" onclick="openPage('mining')">
 
 Start Mining
 
 </button>
 
 
+
+<button class="secondary-button" onclick="openPage('wallet')">
+
+Open Wallet
+
+</button>
+
+
+
 </div>
 
 
+</div>
+
+
+
+<div class="stats-grid">
+
+
+
+<div class="stat-card">
+
+<h3>
+DND Network
+</h3>
+
+<p>
+Active Ecosystem
+</p>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<h3>
+Mining
+</h3>
+
+<p>
+Available
+</p>
+
+</div>
+
+
+
+
+<div class="stat-card">
+
+<h3>
+Security
+</h3>
+
+<p>
+Protected Wallet
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
 </section>
+
+
+
 
 
 
@@ -146,9 +259,19 @@ Start Mining
 <section id="wallet" class="page hidden">
 
 
+<div class="section-title">
+
 <h2>
-💼 DND Wallet
+💎 DND Wallet
 </h2>
+
+
+<p>
+Your digital asset center
+</p>
+
+
+</div>
 
 
 
@@ -156,28 +279,194 @@ Start Mining
 
 
 
-<div class="wallet-card">
+<div class="balance-card">
 
 <h3>
-💎 DND
+DND
 </h3>
 
-<p id="dndBalance">
+<div id="dndBalance">
 0
+</div>
+
+
+<span>
+Digital Network Dynamics
+</span>
+
+</div>
+
+
+
+
+
+<div class="balance-card">
+
+<h3>
+USDT
+</h3>
+
+<div id="usdtBalance">
+0
+</div>
+
+
+<span>
+Tether USD
+</span>
+
+</div>
+
+
+
+
+
+<div class="balance-card">
+
+<h3>
+BTC
+</h3>
+
+<div id="btcBalance">
+0
+</div>
+
+
+<span>
+Bitcoin
+</span>
+
+</div>
+
+
+
+
+
+<div class="balance-card">
+
+<h3>
+ETH
+</h3>
+
+<div id="ethBalance">
+0
+</div>
+
+
+<span>
+Ethereum
+</span>
+
+</div>
+
+
+
+
+
+<div class="balance-card">
+
+<h3>
+TRX
+</h3>
+
+<div id="trxBalance">
+0
+</div>
+
+
+<span>
+Tron
+</span>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<div class="wallet-actions">
+
+
+<button onclick="openPage('deposit')">
+
+Deposit
+
+</button>
+
+
+
+<button onclick="openPage('withdraw')">
+
+Withdraw
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+<section id="mining" class="page hidden">
+
+
+<div class="section-title">
+
+<h2>
+⛏ DND Mining
+</h2>
+
+<p>
+Earn DND through network participation
 </p>
 
 </div>
 
 
 
-<div class="wallet-card">
+
+<div class="mining-panel">
+
+
+
+<div class="mining-status">
+
 
 <h3>
-💵 USDT
+Mining Status
 </h3>
 
-<p id="usdtBalance">
-0
+
+<div id="miningStatus" class="status-off">
+
+OFF
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="mining-info">
+
+
+<div class="info-box">
+
+<h4>
+Mining Speed
+</h4>
+
+<p id="miningSpeed">
+
+0.01 DND / sec
+
 </p>
 
 </div>
@@ -185,14 +474,16 @@ Start Mining
 
 
 
-<div class="wallet-card">
+<div class="info-box">
 
-<h3>
-₿ BTC
-</h3>
+<h4>
+Mining Time
+</h4>
 
-<p id="btcBalance">
-0
+<p id="miningTime">
+
+0 seconds
+
 </p>
 
 </div>
@@ -200,21 +491,61 @@ Start Mining
 
 
 
-<div class="wallet-card">
+<div class="info-box">
 
-<h3>
-⚡ TRX
-</h3>
+<h4>
+Level
+</h4>
 
-<p id="trxBalance">
-0
+<p id="miningLevel">
+
+1
+
 </p>
 
 </div>
 
 
+</div>
+
+
+
+
+
+<div class="mining-buttons">
+
+
+<button class="main-button"
+onclick="startMining()">
+
+Start Mining
+
+</button>
+
+
+
+<button class="secondary-button"
+onclick="stopMining()">
+
+Stop
+
+</button>
+
+
+<button class="boost-button"
+onclick="boostMining()">
+
+⚡ Accelerate
+
+</button>
+
+
 
 </div>
+
+
+</div>
+
 
 
 </section>
@@ -224,85 +555,30 @@ Start Mining
 
 
 
-<section id="mining" class="page hidden">
-
-
-<h2>
-⛏ DND Mining
-</h2>
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>
-Mining Status
-</h3>
-
-<p id="miningStatus">
-OFF
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Speed
-</h3>
-
-<p>
-0.01 DND/sec
-</p>
-
-</div>
-
-
-</div>
-
-
-
-<button class="primary"
-onclick="startMining()">
-
-Start Mining
-
-</button>
-
-
-
-<button class="primary"
-onclick="stopMining()">
-
-Stop Mining
-
-</button>
-
-
-
-</section> 
-  </section>
-
-
 
 <section id="exchange" class="page hidden">
 
+
+<div class="section-title">
 
 <h2>
 🔄 Exchange
 </h2>
 
+<p>
+Swap digital assets instantly
+</p>
+
+</div>
 
 
-<div class="exchange-box">
 
 
-<select id="fromCurrency">
+<div class="exchange-panel">
+
+
+
+<select id="exchangeFrom">
 
 
 <option value="DND">
@@ -320,6 +596,11 @@ BTC
 </option>
 
 
+<option value="ETH">
+ETH
+</option>
+
+
 <option value="TRX">
 TRX
 </option>
@@ -329,7 +610,9 @@ TRX
 
 
 
-<select id="toCurrency">
+
+
+<select id="exchangeTo">
 
 
 <option value="USDT">
@@ -347,6 +630,11 @@ BTC
 </option>
 
 
+<option value="ETH">
+ETH
+</option>
+
+
 <option value="TRX">
 TRX
 </option>
@@ -356,19 +644,26 @@ TRX
 
 
 
-<input 
-id="exchangeAmount"
+
+
+
+<input id="exchangeAmount"
+
 type="number"
+
 placeholder="Amount">
 
 
 
-<button class="primary"
+
+<button class="main-button"
+
 onclick="exchangeCurrency()">
 
 Exchange
 
 </button>
+
 
 
 
@@ -378,45 +673,58 @@ Exchange
 
 
 
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="history" class="page hidden">
-
-
-<h2>
-📜 Transaction History
-</h2>
-
-
-<div id="transactionHistory" class="history-box">
-
-No transactions yet
 
 </div>
 
 
+
 </section>
-
-
-
-
-
-
-
 <section id="deposit" class="page hidden">
 
+
+<div class="section-title">
 
 <h2>
 💰 Deposit DND
 </h2>
+
+<p>
+Add assets to your wallet
+</p>
+
+</div>
+
+
+
+<div class="action-panel">
+
+
+<div class="wallet-address">
+
+
+<h3>
+Your DND Address
+</h3>
+
+
+<div class="address-box">
+
+DND-0000-0000-0000
+
+</div>
+
+
+<button onclick="copyAddress()">
+
+Copy Address
+
+</button>
+
+
+</div>
+
+
+
 
 
 <input 
@@ -426,15 +734,22 @@ placeholder="Amount">
 
 
 
-<button class="primary"
-onclick="depositDND(document.getElementById('depositAmount').value)">
+<button class="main-button"
 
-Deposit
+onclick="depositDND()">
+
+Confirm Deposit
 
 </button>
 
 
+
+</div>
+
+
+
 </section>
+
 
 
 
@@ -445,95 +760,235 @@ Deposit
 <section id="withdraw" class="page hidden">
 
 
+<div class="section-title">
+
 <h2>
 📤 Withdraw DND
 </h2>
 
 
-<input 
+<p>
+Send assets from your wallet
+</p>
+
+
+</div>
+
+
+
+
+<div class="action-panel">
+
+
+
+<input
+
+id="withdrawAddress"
+
+placeholder="Wallet address">
+
+
+
+
+
+<input
+
 id="withdrawAmount"
+
 type="number"
+
 placeholder="Amount">
 
 
 
-<button class="primary"
-onclick="withdrawDND(document.getElementById('withdrawAmount').value)">
 
-Withdraw
+
+<button class="main-button"
+
+onclick="withdrawDND()">
+
+Confirm Withdraw
 
 </button>
 
 
+
+</div>
+
+
+
 </section>
+
+
+
+
+
+
+
+
+
+<section id="history" class="page hidden">
+
+
+<div class="section-title">
+
+<h2>
+📜 Transaction History
+</h2>
+
+
+<p>
+All wallet activity
+</p>
+
+
+</div>
+
+
+
+
+<div id="transactionHistory"
+
+class="history-panel">
+
+
+No transactions yet
+
+
+</div>
+
+
+
 </section>
-
-
-
-
 <section id="roadmap" class="page hidden">
 
+
+<div class="section-title">
 
 <h2>
 🗺 DND Roadmap
 </h2>
 
-
-
-<div class="roadmap">
-
-
-<div class="road-item">
-
-<h3>
-Phase 1 — Foundation
-</h3>
-
 <p>
-Project creation, concept and ecosystem planning.
+The evolution of our ecosystem
 </p>
+
 
 </div>
 
 
 
-<div class="road-item">
+
+<div class="roadmap-container">
+
+
+
+<div class="road-card">
+
+
+<div class="phase">
+
+PHASE 01
+
+</div>
+
 
 <h3>
-Phase 2 — Development
+Foundation
 </h3>
 
+
 <p>
-Wallet, mining and platform development.
+
+Creation of DND ecosystem, concept development and technical architecture.
+
 </p>
+
 
 </div>
 
 
 
-<div class="road-item">
+
+
+<div class="road-card">
+
+
+<div class="phase">
+
+PHASE 02
+
+</div>
+
 
 <h3>
-Phase 3 — Expansion
+Technology
 </h3>
 
+
 <p>
-Community growth and global partnerships.
+
+Wallet, mining system, exchange and user infrastructure.
+
 </p>
+
 
 </div>
 
 
 
-<div class="road-item">
+
+
+<div class="road-card">
+
+
+<div class="phase">
+
+PHASE 03
+
+</div>
+
 
 <h3>
-Phase 4 — Global Network
+Expansion
 </h3>
 
+
 <p>
-Building a worldwide decentralized ecosystem.
+
+Global community, partnerships and network growth.
+
 </p>
+
+
+</div>
+
+
+
+
+
+<div class="road-card">
+
+
+<div class="phase">
+
+PHASE 04
+
+</div>
+
+
+<h3>
+Global Network
+
+</h3>
+
+
+<p>
+
+Building a worldwide decentralized digital ecosystem.
+
+</p>
+
 
 </div>
 
@@ -543,6 +998,9 @@ Building a worldwide decentralized ecosystem.
 
 
 </section>
+
+
+
 
 
 
@@ -552,67 +1010,179 @@ Building a worldwide decentralized ecosystem.
 <section id="team" class="page hidden">
 
 
+<div class="section-title">
+
 <h2>
 👥 DND Team
 </h2>
 
 
+<p>
+People behind the technology
+</p>
 
-<div class="cards">
+
+</div>
 
 
-<div class="card">
+
+
+<div class="team-grid">
+
+
+
+<div class="team-card">
+
+
+<div class="team-logo">
+
+D
+
+</div>
+
 
 <h3>
 Founder
+
 </h3>
 
+
 <p>
-Vision and Strategy
+Vision & Strategy
 </p>
+
 
 </div>
 
 
 
 
-<div class="card">
+
+<div class="team-card">
+
+
+<div class="team-logo">
+
+⚙
+
+</div>
+
 
 <h3>
 Developers
+
 </h3>
 
+
 <p>
-Technology and Software
+Technology & Infrastructure
 </p>
+
 
 </div>
 
 
 
 
-<div class="card">
+
+<div class="team-card">
+
+
+<div class="team-logo">
+
+🔬
+
+</div>
+
 
 <h3>
 Research
+
 </h3>
 
+
 <p>
-Innovation and Analytics
+Innovation & Analytics
 </p>
 
-</div>
-
-
 
 </div>
+
+
+
+</div>
+
 
 
 </section>
-
-
-
 </main>
+
+
+
+
+<footer class="footer">
+
+
+<div class="footer-logo">
+
+<div class="logo-emblem small">
+
+D
+
+</div>
+
+
+<h3>
+
+Digital Network Dynamics
+
+</h3>
+
+
+</div>
+
+
+
+<p>
+
+© 2026 DND Ecosystem. All rights reserved.
+
+</p>
+
+
+
+<div class="footer-links">
+
+
+<button onclick="openPage('home')">
+
+Home
+
+</button>
+
+
+
+<button onclick="openPage('wallet')">
+
+Wallet
+
+</button>
+
+
+
+<button onclick="openPage('mining')">
+
+Mining
+
+</button>
+
+
+</div>
+
+
+
+</footer>
+
 
 
 
@@ -620,5 +1190,6 @@ Innovation and Analytics
 
 
 </body>
+
 
 </html>
