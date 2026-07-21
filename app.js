@@ -2,8 +2,31 @@
 
 
 console.log("Digital Network Dynamics loaded");
+let transactions = [];
+function addTransaction(type, amount, currency){
+
+let item = {
+
+type:type,
+amount:amount,
+currency:currency,
+date:new Date().toLocaleString()
+
+};
 
 
+transactions.push(item);
+
+
+localStorage.setItem(
+"DND_transactions",
+JSON.stringify(transactions)
+);
+
+
+updateHistory();
+
+}
 
 // USER DATA
 
