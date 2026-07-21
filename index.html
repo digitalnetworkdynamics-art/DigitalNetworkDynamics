@@ -4,16 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DND Digital Network Dynamics</title>
+<title>DND | Digital Network Dynamics</title>
 
 
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 
@@ -22,40 +23,48 @@ body{
 margin:0;
 
 background:
-linear-gradient(135deg,#05000d,#25004d,#090014);
+radial-gradient(circle at top,#5b0099,#090014 60%);
 
 color:white;
 
 }
 
 
-
 header{
 
-text-align:center;
 padding:40px 20px;
 
-}
+text-align:center;
 
+}
 
 
 .logo{
 
 font-size:70px;
+
 font-weight:900;
-color:#d48aff;
+
+color:#d995ff;
 
 text-shadow:
-0 0 20px #a000ff;
+0 0 25px #a000ff;
 
 }
 
 
+h1{
 
-header p{
+font-size:38px;
 
-font-size:22px;
+}
+
+
+p{
+
 color:#ddd;
+
+font-size:17px;
 
 }
 
@@ -71,6 +80,10 @@ border:none;
 
 margin:8px;
 
+background:#18002b;
+
+color:white;
+
 width:90%;
 
 max-width:350px;
@@ -85,9 +98,9 @@ display:flex;
 
 justify-content:center;
 
-flex-wrap:wrap;
+gap:10px;
 
-gap:12px;
+flex-wrap:wrap;
 
 padding:20px;
 
@@ -97,15 +110,15 @@ padding:20px;
 
 button{
 
-background:#9200ff;
+padding:14px 25px;
 
-border:none;
-
-color:white;
-
-padding:14px 22px;
+border:0;
 
 border-radius:15px;
+
+background:#9b00ff;
+
+color:white;
 
 cursor:pointer;
 
@@ -117,7 +130,7 @@ font-weight:bold;
 
 button:hover{
 
-background:#d05cff;
+background:#d15cff;
 
 }
 
@@ -147,7 +160,7 @@ padding:30px;
 margin-bottom:25px;
 
 box-shadow:
-0 0 30px rgba(150,0,255,.35);
+0 0 35px rgba(150,0,255,.35);
 
 }
 
@@ -169,7 +182,7 @@ gap:20px;
 .box{
 
 background:
-rgba(255,255,255,.08);
+rgba(0,0,0,.25);
 
 padding:25px;
 
@@ -183,11 +196,11 @@ text-align:center;
 
 .number{
 
-font-size:35px;
-
-font-weight:bold;
+font-size:32px;
 
 color:#e0a0ff;
+
+font-weight:bold;
 
 }
 
@@ -203,13 +216,13 @@ display:none;
 
 .status{
 
-padding:15px;
+margin-top:15px;
 
-background:#32005c;
+padding:15px;
 
 border-radius:15px;
 
-margin-top:15px;
+background:#250044;
 
 }
 
@@ -217,7 +230,9 @@ margin-top:15px;
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -231,18 +246,19 @@ DND
 </div>
 
 
-<h1>
+<h1 data-lang="title">
 Digital Network Dynamics
 </h1>
 
 
-<p>
-Web3 Digital Ecosystem Platform
+<p data-lang="subtitle">
+The future digital ecosystem
 </p>
 
 
 
-<select id="lang" onchange="changeLanguage()">
+<select id="language" onchange="translateSite()">
+
 
 <option value="en">
 🇬🇧 English
@@ -272,7 +288,6 @@ Web3 Digital Ecosystem Platform
 </select>
 
 
-
 </header>
 
 
@@ -282,39 +297,40 @@ Web3 Digital Ecosystem Platform
 <nav>
 
 
-<button onclick="openPage('dashboard')">
-📊 Dashboard
+<button onclick="openPage('home')" data-lang="home">
+Home
 </button>
 
 
-<button onclick="openPage('mining')">
-⛏ Mining
+<button onclick="openPage('dashboard')" data-lang="dashboard">
+Dashboard
 </button>
 
 
-<button onclick="openPage('wallets')">
-👛 Wallets
+<button onclick="openPage('mining')" data-lang="mining">
+Mining
 </button>
 
 
-<button onclick="openPage('exchange')">
-🔄 Exchange
+<button onclick="openPage('wallet')" data-lang="wallet">
+Wallet
 </button>
 
 
-<button onclick="openPage('deposit')">
-💳 Deposit
+<button onclick="openPage('exchange')" data-lang="exchange">
+Exchange
 </button>
 
 
-<button onclick="openPage('withdraw')">
-💸 Withdraw
+<button onclick="openPage('withdraw')" data-lang="withdraw">
+Withdraw
 </button>
 
 
-<button onclick="openPage('history')">
-📜 History
+<button onclick="openPage('history')" data-lang="history">
+History
 </button>
+
 
 
 </nav>
@@ -327,28 +343,94 @@ Web3 Digital Ecosystem Platform
 
 
 
+<div id="home" class="card">
 
 
-<div id="dashboard" class="card">
-
-
-<h2>
-📊 Dashboard
+<h2 data-lang="welcome">
+Welcome to DND
 </h2>
+
+
+<p data-lang="description">
+
+Digital Network Dynamics is a digital ecosystem
+built around Web3 technologies and innovation.
+
+</p>
 
 
 
 <div class="grid">
 
 
+<div class="box">
+
+<h3>
+👥 Users
+</h3>
+
+<div class="number" id="users">
+247382
+</div>
+
+</div>
+
+
+
 
 <div class="box">
 
 <h3>
-DND
+💎 DND Price
 </h3>
 
-<div class="number" id="dndBalance">
+<div class="number">
+1$
+</div>
+
+</div>
+
+
+
+<div class="box">
+
+<h3>
+🚀 Network
+</h3>
+
+<div class="number">
+Active
+</div>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="card hidden">
+
+
+<h2 data-lang="dashboard">
+Dashboard
+</h2>
+
+
+<div class="grid">
+
+
+<div class="box">
+
+<h3>
+💎 DND
+</h3>
+
+
+<div class="number" id="dnd">
 1000
 </div>
 
@@ -357,14 +439,14 @@ DND
 
 
 
-
 <div class="box">
 
 <h3>
-USDT
+💵 USDT
 </h3>
 
-<div class="number" id="usdtBalance">
+
+<div class="number" id="usdt">
 0
 </div>
 
@@ -373,14 +455,14 @@ USDT
 
 
 
-
 <div class="box">
 
 <h3>
-Bitcoin
+₿ BTC
 </h3>
 
-<div class="number" id="btcBalance">
+
+<div class="number" id="btc">
 0
 </div>
 
@@ -389,14 +471,14 @@ Bitcoin
 
 
 
-
 <div class="box">
 
 <h3>
-TRX
+⚡ TRX
 </h3>
 
-<div class="number" id="trxBalance">
+
+<div class="number" id="trx">
 0
 </div>
 
@@ -404,19 +486,29 @@ TRX
 </div>
 
 
-
 </div>
 
 
 </div>
+
+
+
+
+
+
+
+
+
 <!-- MINING -->
+
 
 <div id="mining" class="card hidden">
 
 
-<h2>
-⛏ Mining Center
+<h2 data-lang="mining">
+Mining
 </h2>
+
 
 
 <div class="grid">
@@ -425,13 +517,15 @@ TRX
 <div class="box">
 
 <h3>
-Mining Status
+Status
 </h3>
+
 
 <div class="number" id="mineStatus">
 OFF
 </div>
 
+
 </div>
 
 
@@ -439,26 +533,14 @@ OFF
 <div class="box">
 
 <h3>
-Mining Speed
+Speed
 </h3>
 
-<div class="number" id="speed">
+
+<div class="number">
 1x
 </div>
 
-</div>
-
-
-
-<div class="box">
-
-<h3>
-Mining Balance
-</h3>
-
-<div class="number" id="mineBalance">
-0 DND
-</div>
 
 </div>
 
@@ -480,6 +562,13 @@ Mining Balance
 </button>
 
 
+
+<div class="status" id="mineMessage">
+
+</div>
+
+
+
 </div>
 
 
@@ -490,14 +579,14 @@ Mining Balance
 
 
 
-<!-- WALLETS -->
+<!-- WALLET -->
 
 
-<div id="wallets" class="card hidden">
+<div id="wallet" class="card hidden">
 
 
-<h2>
-👛 Wallet Center
+<h2 data-lang="wallet">
+Wallet
 </h2>
 
 
@@ -505,21 +594,23 @@ Mining Balance
 <div class="grid">
 
 
-
 <div class="box">
 
 <h3>
-💎 DND Wallet
+DND Wallet
 </h3>
 
+
 <p>
-DND Balance
+Balance:
 </p>
+
 
 <div class="number" id="walletDND">
 1000
 </div>
 
+
 </div>
 
 
@@ -528,46 +619,46 @@ DND Balance
 <div class="box">
 
 <h3>
-💵 USDT Wallet
+USDT Wallet
 </h3>
+
 
 <div class="number" id="walletUSDT">
 0
 </div>
 
-</div>
 
+</div>
 
 
 
 <div class="box">
 
 <h3>
-₿ Bitcoin Wallet
+BTC Wallet
 </h3>
+
 
 <div class="number" id="walletBTC">
 0
 </div>
 
-</div>
 
+</div>
 
 
 
 <div class="box">
 
 <h3>
-⚡ TRX Wallet
+TRX Wallet
 </h3>
+
 
 <div class="number" id="walletTRX">
 0
 </div>
 
-</div>
-
-
 
 </div>
 
@@ -576,39 +667,27 @@ DND Balance
 </div>
 
 
-
-
-
-
-
-
-
+</div>
 <!-- EXCHANGE -->
 
 
 <div id="exchange" class="card hidden">
 
 
-<h2>
-🔄 DND Exchange
+<h2 data-lang="exchange">
+Exchange DND → USDT
 </h2>
 
 
 <p>
-Test exchange rate:
+Rate:
+<b>1 DND = 1 USDT</b>
 </p>
 
 
-<div class="number">
-1 DND = 1 USDT
-</div>
 
-
-
-<input 
-id="exchangeInput"
-placeholder="Enter DND amount"
->
+<input id="exchangeAmount"
+placeholder="Enter DND amount">
 
 
 
@@ -621,7 +700,6 @@ Exchange
 <div class="status" id="exchangeMessage">
 
 </div>
-
 
 
 </div>
@@ -646,13 +724,8 @@ Exchange
 
 
 
-<p>
-Select currency for deposit
-</p>
-
-
-
 <div class="box">
+
 
 <h3>
 USDT TRC20
@@ -660,18 +733,14 @@ USDT TRC20
 
 
 <p>
-Minimum: 10 USDT
-</p>
-
-
-<p>
 TPRe3zZ7t9HgGd2ybh6k3xiCQbrCNwLeHB
 </p>
 
 
-<button onclick="createDeposit('USDT')">
+<button onclick="depositRequest('USDT')">
 Create Deposit
 </button>
+
 
 </div>
 
@@ -681,14 +750,10 @@ Create Deposit
 
 <div class="box">
 
+
 <h3>
 Bitcoin
 </h3>
-
-
-<p>
-Minimum: 50 USD
-</p>
 
 
 <p>
@@ -696,7 +761,7 @@ bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw
 </p>
 
 
-<button onclick="createDeposit('BTC')">
+<button onclick="depositRequest('BTC')">
 Create Deposit
 </button>
 
@@ -716,22 +781,17 @@ TRX
 
 
 <p>
-Minimum: 100 USD
-</p>
-
-
-<p>
 TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza
 </p>
 
 
-
-<button onclick="createDeposit('TRX')">
+<button onclick="depositRequest('TRX')">
 Create Deposit
 </button>
 
 
 </div>
+
 
 
 
@@ -757,13 +817,13 @@ Create Deposit
 <div id="withdraw" class="card hidden">
 
 
-<h2>
-💸 Withdraw
+<h2 data-lang="withdraw">
+Withdraw
 </h2>
 
 
 
-<select id="withdrawCoin">
+<select id="withdrawCurrency">
 
 
 <option>
@@ -785,23 +845,23 @@ TRX
 
 
 
-<input 
-id="withdrawAmount"
-placeholder="Amount"
->
+
+<input id="withdrawAmount"
+placeholder="Amount">
 
 
 
-<input 
-id="withdrawAddress"
-placeholder="Wallet address"
->
+<input id="withdrawAddress"
+placeholder="Wallet address">
 
 
 
-<button onclick="createWithdraw()">
+<button onclick="withdrawRequest()">
+
 Create Withdrawal
+
 </button>
+
 
 
 
@@ -812,13 +872,23 @@ Create Withdrawal
 
 
 </div>
+
+
+
+
+
+
+
+
+
 <!-- HISTORY -->
+
 
 <div id="history" class="card hidden">
 
 
-<h2>
-📜 Transaction History
+<h2 data-lang="history">
+Transaction History
 </h2>
 
 
@@ -829,12 +899,8 @@ No transactions
 </div>
 
 
+
 </div>
-
-
-
-
-
 <script>
 
 
@@ -855,14 +921,14 @@ Number(localStorage.getItem("trx")) || 0;
 
 
 
-let transactions =
-JSON.parse(localStorage.getItem("transactions")) || [];
+let history =
+JSON.parse(localStorage.getItem("history")) || [];
 
 
 
 let mining = false;
 
-let miningTimer;
+let timer;
 
 
 
@@ -881,8 +947,8 @@ localStorage.setItem("trx",trx);
 
 
 localStorage.setItem(
-"transactions",
-JSON.stringify(transactions)
+"history",
+JSON.stringify(history)
 );
 
 
@@ -892,29 +958,27 @@ JSON.stringify(transactions)
 
 
 
+
+
+
+
 function update(){
 
 
-
-document.getElementById("dndBalance").innerHTML =
+document.getElementById("dnd").innerHTML =
 dnd.toFixed(2);
 
 
-
-document.getElementById("usdtBalance").innerHTML =
+document.getElementById("usdt").innerHTML =
 usdt.toFixed(2);
 
 
-
-document.getElementById("btcBalance").innerHTML =
+document.getElementById("btc").innerHTML =
 btc.toFixed(6);
 
 
-
-document.getElementById("trxBalance").innerHTML =
+document.getElementById("trx").innerHTML =
 trx.toFixed(2);
-
-
 
 
 
@@ -922,15 +986,12 @@ document.getElementById("walletDND").innerHTML =
 dnd.toFixed(2);
 
 
-
 document.getElementById("walletUSDT").innerHTML =
 usdt.toFixed(2);
 
 
-
 document.getElementById("walletBTC").innerHTML =
 btc.toFixed(6);
-
 
 
 document.getElementById("walletTRX").innerHTML =
@@ -938,13 +999,7 @@ trx.toFixed(2);
 
 
 
-document.getElementById("mineBalance").innerHTML =
-dnd.toFixed(2);
-
-
-
 showHistory();
-
 
 
 }
@@ -960,12 +1015,10 @@ showHistory();
 function openPage(page){
 
 
-let pages=document.querySelectorAll(".card");
+document.querySelectorAll(".card")
+.forEach(function(el){
 
-
-pages.forEach(function(p){
-
-p.classList.add("hidden");
+el.classList.add("hidden");
 
 });
 
@@ -998,9 +1051,7 @@ document.getElementById("mineStatus")
 .innerHTML="ACTIVE";
 
 
-
-miningTimer=setInterval(function(){
-
+timer=setInterval(function(){
 
 
 dnd+=0.05;
@@ -1011,9 +1062,13 @@ save();
 update();
 
 
-
 },1000);
 
+
+
+document.getElementById("mineMessage")
+.innerHTML=
+"Mining started";
 
 
 }
@@ -1032,11 +1087,16 @@ function stopMining(){
 mining=false;
 
 
-clearInterval(miningTimer);
+clearInterval(timer);
 
 
 document.getElementById("mineStatus")
 .innerHTML="OFF";
+
+
+document.getElementById("mineMessage")
+.innerHTML=
+"Mining stopped";
 
 
 }
@@ -1049,15 +1109,15 @@ document.getElementById("mineStatus")
 
 
 
-function addTransaction(type,amount,currency,status){
+function addHistory(type,amount,currency,status){
 
 
 
-let item={
+history.unshift({
 
 
 id:
-Math.floor(Math.random()*999999),
+Math.floor(Math.random()*900000),
 
 
 type:type,
@@ -1076,15 +1136,11 @@ date:
 new Date().toLocaleString()
 
 
-};
+});
 
-
-
-transactions.unshift(item);
 
 
 save();
-
 
 showHistory();
 
@@ -1102,16 +1158,14 @@ showHistory();
 function exchangeDND(){
 
 
-
-let amount=
+let amount =
 Number(
-document.getElementById("exchangeInput").value
+document.getElementById("exchangeAmount").value
 );
 
 
 
 if(amount<=0 || amount>dnd){
-
 
 
 document.getElementById("exchangeMessage")
@@ -1133,7 +1187,7 @@ usdt+=amount;
 
 
 
-addTransaction(
+addHistory(
 "Exchange",
 amount,
 "DND → USDT",
@@ -1160,19 +1214,19 @@ update();
 
 
 
-function createDeposit(currency){
+function depositRequest(currency){
 
 
 
-addTransaction(
+addHistory(
 
-"Deposit Request",
+"Deposit",
 
 0,
 
 currency,
 
-"WAITING CONFIRMATION"
+"PENDING CONFIRMATION"
 
 );
 
@@ -1193,28 +1247,26 @@ document.getElementById("depositMessage")
 
 
 
-function createWithdraw(){
+function withdrawRequest(){
 
 
 
-let coin=
-document.getElementById("withdrawCoin").value;
+let currency =
+document.getElementById("withdrawCurrency").value;
 
 
 
-let amount=
+let amount =
 document.getElementById("withdrawAmount").value;
 
 
 
-let address=
+let address =
 document.getElementById("withdrawAddress").value;
 
 
 
-
-if(amount<=0 || address.length<5){
-
+if(amount=="" || address==""){
 
 
 document.getElementById("withdrawMessage")
@@ -1229,15 +1281,15 @@ return;
 
 
 
-addTransaction(
+addHistory(
 
 "Withdrawal",
 
 amount,
 
-coin+" Address: "+address,
+currency+" Address: "+address,
 
-" PENDING "
+"PENDING"
 
 );
 
@@ -1262,16 +1314,19 @@ function showHistory(){
 
 
 
-let box=
+let box =
 document.getElementById("historyList");
 
 
 
-if(transactions.length===0){
+if(!history.length){
 
-box.innerHTML="No transactions";
+box.innerHTML=
+"No transactions";
+
 
 return;
+
 
 }
 
@@ -1281,7 +1336,7 @@ box.innerHTML="";
 
 
 
-transactions.forEach(function(t){
+history.forEach(function(h){
 
 
 
@@ -1291,22 +1346,16 @@ box.innerHTML+=`
 <div class="status">
 
 
-<b>#${t.id}</b><br>
+<b>#${h.id}</b><br>
 
+${h.type}<br>
 
-${t.type}<br>
-
-
-Amount:
-${t.amount}
-${t.currency}<br>
-
+${h.amount} ${h.currency}<br>
 
 Status:
-${t.status}<br>
+${h.status}<br>
 
-
-${t.date}
+${h.date}
 
 
 </div>
@@ -1329,20 +1378,202 @@ ${t.date}
 
 
 
-function changeLanguage(){
+const translations = {
 
 
-let lang=
-document.getElementById("lang").value;
+en:{
+
+
+title:"Digital Network Dynamics",
+
+subtitle:"The future digital ecosystem",
+
+home:"Home",
+
+dashboard:"Dashboard",
+
+mining:"Mining",
+
+wallet:"Wallet",
+
+exchange:"Exchange",
+
+withdraw:"Withdraw",
+
+history:"History",
+
+welcome:"Welcome to DND",
+
+description:
+"Digital ecosystem powered by innovation"
+
+
+},
 
 
 
-alert(
-"Language changed: "+lang
-);
+zh:{
+
+
+title:"数字网络动态",
+
+subtitle:"未来数字生态系统",
+
+home:"主页",
+
+dashboard:"仪表盘",
+
+mining:"挖矿",
+
+wallet:"钱包",
+
+exchange:"兑换",
+
+withdraw:"提现",
+
+history:"历史",
+
+welcome:"欢迎来到DND",
+
+description:"基于创新的数字生态系统"
+
+
+},
+
+
+
+es:{
+
+
+title:"Dinámica de Red Digital",
+
+subtitle:"El futuro ecosistema digital",
+
+home:"Inicio",
+
+dashboard:"Panel",
+
+mining:"Minería",
+
+wallet:"Cartera",
+
+exchange:"Intercambio",
+
+withdraw:"Retirar",
+
+history:"Historial",
+
+welcome:"Bienvenido a DND",
+
+description:"Ecosistema digital"
+
+
+},
+
+
+
+pl:{
+
+
+title:"Cyfrowa Sieć Dynamics",
+
+subtitle:"Przyszłość cyfrowego ekosystemu",
+
+home:"Start",
+
+dashboard:"Panel",
+
+mining:"Kopanie",
+
+wallet:"Portfel",
+
+exchange:"Wymiana",
+
+withdraw:"Wypłata",
+
+history:"Historia",
+
+welcome:"Witamy w DND",
+
+description:"Cyfrowy ekosystem"
+
+
+},
+
+
+
+fr:{
+
+
+title:"Digital Network Dynamics",
+
+subtitle:"L'écosystème numérique du futur",
+
+home:"Accueil",
+
+dashboard:"Tableau",
+
+mining:"Minage",
+
+wallet:"Portefeuille",
+
+exchange:"Échange",
+
+withdraw:"Retrait",
+
+history:"Historique",
+
+welcome:"Bienvenue dans DND",
+
+description:"Écosystème numérique"
 
 
 }
+
+
+};
+
+
+
+
+
+
+
+
+
+function translateSite(){
+
+
+let lang =
+document.getElementById("language").value;
+
+
+
+document.querySelectorAll("[data-lang]")
+.forEach(function(el){
+
+
+let key=el.dataset.lang;
+
+
+
+if(translations[lang][key]){
+
+
+el.innerHTML=
+translations[lang][key];
+
+
+}
+
+
+});
+
+
+}
+
+
+
 
 
 
@@ -1356,11 +1587,6 @@ update();
 </script>
 
 
-
-</div>
-
-
 </body>
-
 
 </html>
