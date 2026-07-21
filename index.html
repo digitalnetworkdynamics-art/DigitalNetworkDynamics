@@ -431,7 +431,7 @@ balance.toFixed(6)+" DND";
 </script>
 <script>
 
-let balance = 0;
+let balance = Number(localStorage.getItem("DND_balance")) || 0;
 let mining = false;
 let speed = 0.25;
 
@@ -448,7 +448,7 @@ function startMining(){
     setInterval(function(){
 
         balance += speed / 3600;
-
+localStorage.setItem("DND_balance", balance);
         document.querySelector("#balance").innerHTML =
         balance.toFixed(6) + " DND";
 
