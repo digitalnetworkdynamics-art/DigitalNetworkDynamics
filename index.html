@@ -401,7 +401,7 @@ START MINING
 
 <script>
 
-let balance = 0;
+let balance = Number(localStorage.getItem("DND_balance")) || 0;
 let mining = false;
 
 function startMining(){
@@ -412,30 +412,20 @@ return;
 
 mining = true;
 
-document.getElementById("miningStatus").innerHTML="Active";
-
+document.getElementById("miningStatus").innerHTML = "Active";
 
 setInterval(function(){
 
-balance = balance + 0.000069;
+balance += 0.000069;
+
+localStorage.setItem("DND_balance", balance);
 
 document.getElementById("balance").innerHTML =
-balance.toFixed(6)+" DND";
-
+balance.toFixed(6) + " DND";
 
 },1000);
 
-
 }
-
-</script>
-<script>
-
-let balance = Number(localStorage.getItem("DND_balance")) || 0;
-let mining = false;
-let speed = 0.25;
-
-function startMining(){
 
     if(mining){
         return;
