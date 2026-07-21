@@ -1,261 +1,75 @@
-let currentLanguage = "en";
+// DND APP CORE
 
+let dndBalance = Number(localStorage.getItem("dndBalance")) || 0;
 
-const translations = {
+let balances = {
 
-en: {
-welcome:"Welcome to DND Ecosystem",
-},
+DND: dndBalance,
 
-fr: {
-welcome:"Bienvenue dans l'écosystème DND",
-},
+USDT: Number(localStorage.getItem("usdt")) || 0,
 
-zh: {
-welcome:"欢迎来到DND生态系统",
-},
+BTC: Number(localStorage.getItem("btc")) || 0,
 
-pl: {
-welcome:"Witamy w ekosystemie DND",
-},
-
-es: {
-welcome:"Bienvenido al ecosistema DND",
-}
-
-};
-// DND MAIN APPLICATION
-
-
-console.log("Digital Network Dynamics loaded");
-let transactions = [];
-function addTransaction(type, amount, currency){
-
-let item = {
-
-type:type,
-amount:amount,
-currency:currency,
-date:new Date().toLocaleString()
+TRX: Number(localStorage.getItem("trx")) || 0
 
 };
 
 
-transactions.push(item);
+let transactions = JSON.parse(
+localStorage.getItem("transactions")
+) || [];
 
 
-localStorage.setItem(
-"DND_transactions",
-JSON.stringify(transactions)
-);
+let mining = false;
 
-
-updateHistory();
-
-}
-
-// USER DATA
-
-let user = {
-
-    DND: 0,
-
-    USDT: 0,
-
-    BTC: 0,
-
-    TRX: 0
-
-};
-let miningActive = false;
-
-let miningSpeed = 0.1;
+let miningSpeed = 0.01;
 
 let miningTimer = null;
 
 
 
-// APPLICATION START
+function saveData(){
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-
-    console.log(
-    "DND ecosystem initialized"
-    );
-
-
-    loadUser();
-
-updateWallet();
-
-
-});
-
-
-
-
-
-// SAVE USER DATA
-
-function saveUser(){
+localStorage.setItem(
+"dndBalance",
+balances.DND
+);
 
 
 localStorage.setItem(
-
-"DND_user",
-
-JSON.stringify(user)
-
+"usdt",
+balances.USDT
 );
 
 
-}
-
-
-
-
-
-// LOAD USER DATA
-
-function loadUser(){
-
-
-let saved =
-localStorage.getItem(
-"DND_user"
+localStorage.setItem(
+"btc",
+balances.BTC
 );
 
 
-
-if(saved){
-
-
-user =
-JSON.parse(saved);
-
-
-}
-
-
-console.log(user);
-
-
-}
-// UPDATE WALLET DISPLAY
-
-function updateWallet(){
-
-
-let dnd =
-document.getElementById(
-"dndBalance"
+localStorage.setItem(
+"trx",
+balances.TRX
 );
 
 
-let usdt =
-document.getElementById(
-"usdtBalance"
+localStorage.setItem(
+"transactions",
+JSON.stringify(transactions)
 );
 
-
-let btc =
-document.getElementById(
-"btcBalance"
-);
-
-
-let trx =
-document.getElementById(
-"trxBalance"
-);
-
-
-
-if(dnd){
-
-dnd.innerHTML =
-user.DND.toFixed(4);
-
-}
-
-
-
-if(usdt){
-
-usdt.innerHTML =
-user.USDT.toFixed(4);
-
-}
-
-
-
-if(btc){
-
-btc.innerHTML =
-user.BTC.toFixed(8);
-
-}
-
-
-
-if(trx){
-
-trx.innerHTML =
-user.TRX.toFixed(4);
-
-}
-
-
-
-}
-
-
-
-
-// DEMO ADD BALANCE FUNCTION
-
-function addDemoDND(amount){
-
-
-user.DND += amount;
-
-
-saveUser();
-
-
-console.log(
-"DND added:",
-amount
-);
-
-
 }
 
 
 
 
 
+// переключение разделов
 
-// SIMPLE NAVIGATION
-
-function openPage(page){
-
-
-console.log(
-"Opening:",
-page
-);
-
-
-}
 function showSection(id){
 
-
-let pages =
-document.querySelectorAll(".page");
+let pages = document.querySelectorAll(".page");
 
 
 pages.forEach(function(page){
@@ -265,248 +79,87 @@ page.classList.add("hidden");
 });
 
 
-
-let active =
-document.getElementById(id);
+let section = document.getElementById(id);
 
 
+if(section){
 
-if(active){
+section.classList.remove("hidden");
 
-active.classList.remove("hidden");
+}
+
+}
+// WALLET UPDATE
+
+function updateWallet(){
+
+
+let dnd = document.getElementById("dndBalance");
+
+let usdt = document.getElementById("usdtBalance");
+
+let btc = document.getElementById("btcBalance");
+
+let trx = document.getElementById("trxBalance");
+
+
+
+if(dnd){
+
+dnd.innerHTML = balances.DND.toFixed(4);
 
 }
 
 
 
+if(usdt){
+
+usdt.innerHTML = balances.USDT.toFixed(2);
+
 }
-let miningInterval;
+
+
+
+if(btc){
+
+btc.innerHTML = balances.BTC.toFixed(6);
+
+}
+
+
+
+if(trx){
+
+trx.innerHTML = balances.TRX.toFixed(2);
+
+}
+
+
+}
+
+
+
+
+// MINING SYSTEM
 
 
 function startMining(){
 
 
-document.getElementById(
-"miningStatus"
-).innerHTML="ACTIVE";
-
-
-document.getElementById(
-"miningMessage"
-).innerHTML=
-"Mining started";
-
-
-miningInterval =
-setInterval(function(){
-
-
-user.DND += 0.01;
-
-
-saveUser();
-
-updateWallet();
-
-
-},1000);
-
-
-}
-
-
-
-function stopMining(){
-
-
-clearInterval(miningInterval);
-
-
-
-document.getElementById(
-"miningStatus"
-).innerHTML="OFF";
-
-
-document.getElementById(
-"miningMessage"
-).innerHTML=
-"Mining stopped";
-
-
-}
-function exchangeCurrency(){
-
-
-let from =
-document.getElementById(
-"fromCurrency"
-).value;
-
-
-
-let to =
-document.getElementById(
-"toCurrency"
-).value;
-
-
-
-let amount =
-Number(
-document.getElementById(
-"exchangeAmount"
-).value
-);
-
-
-
-if(!amount || amount<=0){
-
-document.getElementById(
-"exchangeMessage"
-).innerHTML=
-"Enter amount";
+if(mining){
 
 return;
 
 }
 
 
-
-if(user[from] < amount){
-
-document.getElementById(
-"exchangeMessage"
-).innerHTML=
-"Not enough balance";
-
-return;
-
-}
-
-
-// DEMO RATE
-
-let result =
-amount;
-
-
-
-user[from]-=amount;
-
-user[to]+=result;
-
-
-saveUser();
-
-updateWallet();
-
-
-
-document.getElementById(
-"exchangeMessage"
-).innerHTML=
-"Exchange completed";
-
-
-}
-
-currentLanguage = this.value;
-
-document.querySelector(".hero h2").innerHTML =
-translations[currentLanguage].welcome;
-
-
-localStorage.setItem(
-"DND_language",
-currentLanguage
-);
-
-});
-document.getElementById("languageSelect").addEventListener("change", function(){
-
-let lang = this.value;
-
-
-let title = document.querySelector(".hero h2");
-
-
-if(lang === "en"){
-
-title.innerHTML = "Welcome to DND Ecosystem";
-
-}
-
-
-if(lang === "fr"){
-
-title.innerHTML = "Bienvenue dans l'écosystème DND";
-
-}
-
-
-if(lang === "zh"){
-
-title.innerHTML = "欢迎来到DND生态系统";
-
-}
-
-
-if(lang === "pl"){
-
-title.innerHTML = "Witamy w ekosystemie DND";
-
-}
-
-
-if(lang === "es"){
-
-title.innerHTML = "Bienvenido al ecosistema DND";
-
-}
-
-
-
-localStorage.setItem(
-"DND_language",
-lang
-);
-
-
-});
-console.log("DND app loaded");
-window.onload = function(){
-
-const language = document.getElementById("languageSelect");
-
-if(language){
-
-language.addEventListener("change", function(){
-
-alert("Language changed: " + this.value);
-
-});
-
-}
-
-};
-function startMining(){
-
-
-if(miningActive){
-
-return;
-
-}
-
-
-miningActive = true;
+mining = true;
 
 
 
 let status =
 document.getElementById("miningStatus");
+
 
 
 if(status){
@@ -520,8 +173,10 @@ status.innerHTML = "ACTIVE";
 miningTimer = setInterval(function(){
 
 
-user.DND += miningSpeed;
+balances.DND += miningSpeed;
 
+
+saveData();
 
 
 updateWallet();
@@ -536,10 +191,11 @@ updateWallet();
 
 
 
+
 function stopMining(){
 
 
-miningActive = false;
+mining = false;
 
 
 
@@ -550,9 +206,9 @@ clearInterval(miningTimer);
 }
 
 
-
 let status =
 document.getElementById("miningStatus");
+
 
 
 if(status){
@@ -567,45 +223,284 @@ status.innerHTML = "OFF";
 
 
 
-function updateWallet(){
+function addTransaction(type,amount){
 
 
-let dnd =
-document.getElementById("dndBalance");
+transactions.push({
 
+type:type,
 
+amount:amount,
 
-if(dnd){
-
-dnd.innerHTML =
-user.DND.toFixed(2);
-
-}
-
-
-
-}
-function showSection(sectionId){
-
-let pages = document.querySelectorAll(".page");
-
-
-pages.forEach(function(page){
-
-page.classList.add("hidden");
+date:new Date().toLocaleString()
 
 });
 
 
+saveData();
 
-let selected = document.getElementById(sectionId);
+updateHistory();
 
 
-if(selected){
+}
 
-selected.classList.remove("hidden");
+
+
+
+
+// HISTORY
+
+
+function updateHistory(){
+
+
+let box =
+document.getElementById("transactionHistory");
+
+
+
+if(!box){
+
+return;
+
+}
+
+
+
+if(transactions.length===0){
+
+box.innerHTML =
+"No transactions yet";
+
+return;
+
+}
+
+
+
+box.innerHTML = "";
+
+
+transactions.reverse().forEach(function(tx){
+
+
+box.innerHTML += `
+
+<div class="transaction">
+
+<span>${tx.type}</span>
+
+<span>${tx.amount}</span>
+
+<span>${tx.date}</span>
+
+</div>
+
+`;
+
+
+});
+
+
+}
+// EXCHANGE SYSTEM
+
+
+function exchangeCurrency(){
+
+
+let from =
+document.getElementById("fromCurrency").value;
+
+
+let to =
+document.getElementById("toCurrency").value;
+
+
+let amount =
+Number(document.getElementById("exchangeAmount").value);
+
+
+
+if(!amount || amount <= 0){
+
+return;
+
+}
+
+
+
+if(balances[from] < amount){
+
+
+let msg =
+document.getElementById("exchangeMessage");
+
+
+if(msg){
+
+msg.innerHTML =
+"Not enough balance";
+
+}
+
+
+return;
+
+}
+
+
+
+
+// простой тестовый курс
+
+let result = amount;
+
+
+
+balances[from] -= amount;
+
+
+balances[to] += result;
+
+
+
+addTransaction(
+
+"Exchange " + from + " → " + to,
+
+amount
+
+);
+
+
+
+updateWallet();
+
+
+
+let msg =
+document.getElementById("exchangeMessage");
+
+
+
+if(msg){
+
+msg.innerHTML =
+"Exchange completed";
 
 }
 
 
 }
+
+
+
+
+
+// DEPOSIT
+
+
+function depositDND(amount){
+
+
+amount = Number(amount);
+
+
+
+if(!amount){
+
+return;
+
+}
+
+
+
+balances.DND += amount;
+
+
+
+addTransaction(
+
+"Deposit",
+
+amount
+
+);
+
+
+
+updateWallet();
+
+
+}
+
+
+
+
+
+
+// WITHDRAW
+
+
+function withdrawDND(amount){
+
+
+amount = Number(amount);
+
+
+
+if(!amount){
+
+return;
+
+}
+
+
+
+if(balances.DND < amount){
+
+return;
+
+}
+
+
+
+balances.DND -= amount;
+
+
+
+addTransaction(
+
+"Withdraw",
+
+amount
+
+);
+
+
+
+updateWallet();
+
+
+}
+
+
+
+
+
+
+
+// LOAD DATA WHEN PAGE STARTS
+
+
+window.onload = function(){
+
+
+updateWallet();
+
+
+updateHistory();
+
+
+};
