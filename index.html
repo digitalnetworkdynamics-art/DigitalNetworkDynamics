@@ -371,39 +371,64 @@ Digital Network Dynamics © 2026
 
 <section id="dashboard">
 
-<h2>DND Dashboard</h2>
+<h2>DND Mining Dashboard</h2>
 
 <div class="card">
 
 <h3>Balance</h3>
 
-<p style="font-size:40px;">
 <p id="balance" style="font-size:40px;">
 0.000000 DND
 </p>
-</p>
 
-<h3>Mining Status</h3>
 
-<p>
+<h3>Status</h3>
+
 <p id="miningStatus">
 Inactive
 </p>
-</p>
+
 
 <button onclick="startMining()">
 START MINING
 </button>
 
-<h3>Wallet</h3>
-
-<p>
-DND-XXXX-XXXX
-</p>
 
 </div>
 
 </section>
+
+
+<script>
+
+let balance = 0;
+let mining = false;
+
+function startMining(){
+
+if(mining){
+return;
+}
+
+mining = true;
+
+document.getElementById("miningStatus").innerHTML="Active";
+
+
+setInterval(function(){
+
+balance = balance + 0.000069;
+
+document.getElementById("balance").innerHTML =
+balance.toFixed(6)+" DND";
+
+
+},1000);
+
+
+}
+
+</script>
 <script>
 
 let balance = 0;
