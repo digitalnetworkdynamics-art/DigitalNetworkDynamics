@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DND | Digital Network Dynamics</title>
@@ -13,7 +14,7 @@
 
 *{
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 
@@ -22,7 +23,7 @@ body{
 margin:0;
 
 background:
-linear-gradient(135deg,#05000d,#26004d,#090014);
+linear-gradient(135deg,#05000b,#21003d,#090014);
 
 color:white;
 
@@ -38,25 +39,55 @@ text-align:center;
 }
 
 
+
 .logo{
 
-font-size:75px;
+font-size:80px;
 
 font-weight:900;
 
-color:#d68aff;
+letter-spacing:5px;
+
+color:#dc8cff;
 
 text-shadow:
-0 0 30px #9b00ff;
+0 0 25px #a000ff;
 
 }
+
 
 
 .subtitle{
 
 font-size:22px;
 
-color:#ddd;
+color:#cccccc;
+
+}
+
+
+
+.language{
+
+margin-top:25px;
+
+}
+
+
+
+select{
+
+background:#160025;
+
+color:white;
+
+border:1px solid #9d00ff;
+
+border-radius:12px;
+
+padding:12px;
+
+font-size:16px;
 
 }
 
@@ -80,26 +111,27 @@ padding:20px;
 
 button{
 
-background:#9700ff;
+background:#9900ff;
 
 border:none;
-
-color:white;
 
 padding:14px 25px;
 
 border-radius:15px;
 
-cursor:pointer;
+color:white;
 
 font-weight:bold;
+
+cursor:pointer;
 
 }
 
 
+
 button:hover{
 
-background:#d45cff;
+background:#d35cff;
 
 }
 
@@ -120,7 +152,7 @@ padding:20px;
 .card{
 
 background:
-rgba(255,255,255,.08);
+rgba(255,255,255,0.08);
 
 border-radius:25px;
 
@@ -129,7 +161,7 @@ padding:30px;
 margin-bottom:25px;
 
 box-shadow:
-0 0 30px rgba(150,0,255,.3);
+0 0 30px rgba(150,0,255,.25);
 
 }
 
@@ -140,7 +172,7 @@ box-shadow:
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(230px,1fr));
+repeat(auto-fit,minmax(240px,1fr));
 
 gap:20px;
 
@@ -157,19 +189,17 @@ padding:25px;
 
 border-radius:20px;
 
-text-align:center;
-
 }
 
 
 
 .number{
 
-font-size:32px;
+font-size:35px;
 
 font-weight:bold;
 
-color:#df9cff;
+color:#e0a0ff;
 
 }
 
@@ -182,14 +212,46 @@ display:none;
 }
 
 
+
+h1,h2,h3{
+
+color:#f0c8ff;
+
+}
+
+
+
+p{
+
+line-height:1.6;
+
+color:#dddddd;
+
+}
+
+
+
+.status{
+
+background:#22003d;
+
+padding:15px;
+
+border-radius:15px;
+
+margin-top:15px;
+
+}
+
+
 </style>
 
 
 </head>
 
 
-
 <body>
+
 
 
 <header>
@@ -200,80 +262,96 @@ DND
 </div>
 
 
-<h1>
+<h1 data-key="title">
 Digital Network Dynamics
 </h1>
 
 
-<div class="subtitle">
-The next generation digital ecosystem
+<div class="subtitle" data-key="subtitle">
+
+The future digital ecosystem
+
 </div>
 
 
-<select id="language">
 
-<option>
-English
+<div class="language">
+
+
+<select id="languageSelect" onchange="changeLanguage()">
+
+
+<option value="en">
+🇬🇧 English
 </option>
 
-<option>
-中文
+
+<option value="zh">
+🇨🇳 Chinese
 </option>
 
-<option>
-Español
+
+<option value="es">
+🇪🇸 Spanish
 </option>
 
-<option>
-Polski
+
+<option value="pl">
+🇵🇱 Polish
 </option>
 
-<option>
-Français
+
+<option value="fr">
+🇫🇷 French
 </option>
 
 
 </select>
 
 
+</div>
+
+
 </header>
+
+
 
 
 
 <nav>
 
 
-<button onclick="show('home')">
+<button onclick="openSection('home')" data-key="home">
 Home
 </button>
 
 
-<button onclick="show('dashboard')">
-Dashboard
+<button onclick="openSection('dashboard')" data-key="dashboard">
+Wallet
 </button>
 
 
-<button onclick="show('mining')">
+<button onclick="openSection('mining')" data-key="mining">
 Mining
 </button>
 
 
-<button onclick="show('exchange')">
+<button onclick="openSection('exchange')" data-key="exchange">
 Exchange
 </button>
 
 
-<button onclick="show('deposit')">
+<button onclick="openSection('deposit')" data-key="deposit">
 Deposit
 </button>
 
 
-<button onclick="show('withdraw')">
+<button onclick="openSection('withdraw')" data-key="withdraw">
 Withdraw
 </button>
 
 
-<button onclick="show('history')">
+<button onclick="openSection('history')" data-key="history">
 History
 </button>
 
@@ -284,20 +362,22 @@ History
 
 
 
+
 <div class="container">
+
 
 
 <section id="home" class="card">
 
 
-<h2>
+<h2 data-key="welcome">
 Welcome to DND
 </h2>
 
 
-<p>
+<p data-key="about">
 
-Digital Network Dynamics is a Web3 ecosystem focused on digital technologies, decentralized solutions and future financial infrastructure.
+Digital Network Dynamics is a next generation digital ecosystem focused on blockchain technologies, decentralized solutions and global innovation.
 
 </p>
 
@@ -306,13 +386,16 @@ Digital Network Dynamics is a Web3 ecosystem focused on digital technologies, de
 <div class="grid">
 
 
+
 <div class="box">
+
 
 <h3>
 👥 Active Users
 </h3>
 
-<div class="number">
+
+<div class="number" id="activeUsers">
 247382
 </div>
 
@@ -321,26 +404,442 @@ Digital Network Dynamics is a Web3 ecosystem focused on digital technologies, de
 
 
 
+
 <div class="box">
+
 
 <h3>
 💎 DND Value
 </h3>
 
+
 <div class="number">
-1 USDT
+1$
 </div>
 
 
 </div>
+
+
 
 
 
 <div class="box">
 
+
 <h3>
-🌐 Network Status
+🌐 Network
 </h3>
+
+
+<div class="number">
+ONLINE
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+<section id="project" class="card">
+
+
+<h2 data-key="projectHistory">
+📖 Project History
+</h2>
+
+
+
+<p>
+
+Digital Network Dynamics was created as a concept of a modern digital ecosystem combining blockchain technologies, decentralized finance concepts and innovative network solutions.
+
+</p>
+
+
+
+<p>
+
+The mission of DND is to create a global digital environment where users can interact with digital assets, mining technologies and future financial instruments.
+
+</p>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+
+<h3>
+🚀 Vision
+</h3>
+
+
+<p>
+
+Building a next-generation digital ecosystem focused on technology, transparency and global accessibility.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+🌍 Mission
+</h3>
+
+
+<p>
+
+Connecting users worldwide through innovative digital solutions.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h3>
+💡 Innovation
+</h3>
+
+
+<p>
+
+Development of blockchain-based tools and digital infrastructure.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="roadmap" class="card">
+
+
+<h2 data-key="roadmap">
+🗺 DND Roadmap
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+
+<h3>
+Phase 1
+</h3>
+
+
+<p>
+
+Project creation, ecosystem planning, interface development and technology research.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h3>
+Phase 2
+</h3>
+
+
+<p>
+
+Mining platform launch, user accounts, wallet system and community expansion.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h3>
+Phase 3
+</h3>
+
+
+<p>
+
+Internal exchange system, digital asset conversion and transaction infrastructure.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h3>
+Phase 4
+</h3>
+
+
+<p>
+
+Mobile application development, global expansion and additional payment integrations.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+
+<h3>
+Phase 5
+</h3>
+
+
+<p>
+
+Worldwide ecosystem growth, partnerships and advanced blockchain solutions.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+<section id="team" class="card">
+
+
+<h2 data-key="team">
+👥 DND Team
+</h2>
+
+
+<p>
+
+The DND ecosystem is developed by specialists focused on blockchain technologies, digital infrastructure and analytical research.
+
+</p>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+
+<h3>
+👨‍💻 Core Developers
+</h3>
+
+
+<p>
+
+Software engineers responsible for platform architecture, security and user experience.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+📊 Blockchain Analysts
+</h3>
+
+
+<p>
+
+Specialists researching blockchain technologies, digital markets and ecosystem development.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+🌐 Network Specialists
+</h3>
+
+
+<p>
+
+Experts focused on scalability, infrastructure and global network solutions.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+📈 Market Research Team
+</h3>
+
+
+<p>
+
+Analysts studying digital economy trends and future technologies.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="statistics" class="card">
+
+
+<h2>
+📊 Network Statistics
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+
+<h3>
+Active Users
+</h3>
+
+
+<div class="number" id="usersCounter">
+247382
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+Transactions
+</h3>
+
+
+<div class="number" id="transactionsCounter">
+584920
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+Network Status
+</h3>
+
 
 <div class="number">
 ACTIVE
@@ -351,71 +850,20 @@ ACTIVE
 
 
 
-</div>
-
-
-</section>
-<section id="roadmap" class="card">
-
-<h2>
-🗺 Roadmap
-</h2>
-
-
-<div class="grid">
 
 
 <div class="box">
 
+
 <h3>
-Phase 1
+Security
 </h3>
 
-<p>
-Project foundation, ecosystem design and technology research.
-</p>
 
+<div class="number">
+ENABLED
 </div>
 
-
-
-<div class="box">
-
-<h3>
-Phase 2
-</h3>
-
-<p>
-Mining system, user platform and community development.
-</p>
-
-</div>
-
-
-
-<div class="box">
-
-<h3>
-Phase 3
-</h3>
-
-<p>
-Exchange system, wallets and digital asset integration.
-</p>
-
-</div>
-
-
-
-<div class="box">
-
-<h3>
-Phase 4
-</h3>
-
-<p>
-Global expansion, mobile application and ecosystem growth.
-</p>
 
 </div>
 
@@ -427,90 +875,6 @@ Global expansion, mobile application and ecosystem growth.
 </section>
 
 
-
-
-
-<section id="team" class="card">
-
-
-<h2>
-👥 DND Team
-</h2>
-
-
-<p>
-
-Our ecosystem is supported by specialists in blockchain technologies, digital analytics and financial research.
-
-</p>
-
-
-
-<div class="grid">
-
-
-<div class="box">
-
-<h3>
-Founder Team
-</h3>
-
-<p>
-Digital infrastructure development
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<h3>
-Blockchain Analysts
-</h3>
-
-<p>
-Technology and ecosystem research
-</p>
-
-</div>
-
-
-
-
-<div class="box">
-
-<h3>
-Market Analysts
-</h3>
-
-<p>
-Digital economy analysis
-</p>
-
-</div>
-
-
-
-<div class="box">
-
-<h3>
-Development Team
-</h3>
-
-<p>
-Platform engineering
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
 
 
 
@@ -521,18 +885,21 @@ Platform engineering
 <section id="dashboard" class="card hidden">
 
 
-<h2>
-📊 Dashboard
+<h2 data-key="wallet">
+💼 Wallet Dashboard
 </h2>
+
 
 
 <div class="grid">
 
 
+
 <div class="box">
 
+
 <h3>
-DND Balance
+💎 DND
 </h3>
 
 
@@ -546,10 +913,12 @@ DND Balance
 
 
 
+
 <div class="box">
 
+
 <h3>
-USDT Balance
+💵 USDT
 </h3>
 
 
@@ -562,10 +931,13 @@ USDT Balance
 
 
 
+
+
 <div class="box">
 
+
 <h3>
-BTC Balance
+₿ Bitcoin
 </h3>
 
 
@@ -578,10 +950,13 @@ BTC Balance
 
 
 
+
+
 <div class="box">
 
+
 <h3>
-TRX Balance
+⚡ TRX
 </h3>
 
 
@@ -593,60 +968,85 @@ TRX Balance
 </div>
 
 
+
 </div>
+
 
 
 </section>
 <section id="mining" class="card hidden">
 
 
-<h2>
-⛏ DND Mining
+<h2 data-key="miningTitle">
+⛏ DND Mining System
 </h2>
+
+
+<p>
+
+Mining allows users to generate DND through the ecosystem activity system.
+
+</p>
+
 
 
 <div class="grid">
 
 
+
 <div class="box">
+
 
 <h3>
 Mining Status
 </h3>
 
-<div class="number" id="miningStatus">
+
+<div class="number" id="mineStatus">
 OFF
 </div>
 
+
 </div>
+
+
 
 
 
 <div class="box">
+
 
 <h3>
 Mining Speed
 </h3>
 
-<div class="number" id="miningSpeed">
+
+<div class="number" id="mineSpeed">
 1x
 </div>
 
+
 </div>
+
+
 
 
 
 <div class="box">
 
+
 <h3>
 Mining Power
 </h3>
 
-<div class="number" id="miningPower">
+
+<div class="number" id="minePower">
 100%
 </div>
 
+
 </div>
+
 
 
 </div>
@@ -661,11 +1061,30 @@ Mining Power
 </button>
 
 
+
 <button onclick="stopMining()">
 ⏹ Stop Mining
 </button>
 
 
+
+<div class="status" id="miningMessage">
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="boost" class="card">
 
 
 <h2>
@@ -673,8 +1092,11 @@ Mining Power
 </h2>
 
 
+
 <p>
-Increase mining speed with accelerator packages.
+
+Increase your mining efficiency with accelerator packages.
+
 </p>
 
 
@@ -690,10 +1112,10 @@ $5
 </h3>
 
 <p>
-Mining speed +10%
++10% Mining Power
 </p>
 
-<button onclick="boost(10)">
+<button onclick="activateBoost(10)">
 Activate
 </button>
 
@@ -709,10 +1131,10 @@ $10
 </h3>
 
 <p>
-Mining speed +25%
++25% Mining Power
 </p>
 
-<button onclick="boost(25)">
+<button onclick="activateBoost(25)">
 Activate
 </button>
 
@@ -728,10 +1150,10 @@ $20
 </h3>
 
 <p>
-Mining speed +50%
++50% Mining Power
 </p>
 
-<button onclick="boost(50)">
+<button onclick="activateBoost(50)">
 Activate
 </button>
 
@@ -747,10 +1169,10 @@ $50
 </h3>
 
 <p>
-Mining speed x2
+Mining Speed x2
 </p>
 
-<button onclick="boost(100)">
+<button onclick="activateBoost(100)">
 Activate
 </button>
 
@@ -766,10 +1188,10 @@ $100
 </h3>
 
 <p>
-Mining speed x3
+Mining Speed x3
 </p>
 
-<button onclick="boost(200)">
+<button onclick="activateBoost(200)">
 Activate
 </button>
 
@@ -785,10 +1207,10 @@ $200
 </h3>
 
 <p>
-Mining speed x5
+Mining Speed x5
 </p>
 
-<button onclick="boost(400)">
+<button onclick="activateBoost(400)">
 Activate
 </button>
 
@@ -804,10 +1226,10 @@ $500
 </h3>
 
 <p>
-Mining speed x10
+Mining Speed x10
 </p>
 
-<button onclick="boost(900)">
+<button onclick="activateBoost(900)">
 Activate
 </button>
 
@@ -823,10 +1245,10 @@ $1000
 </h3>
 
 <p>
-Maximum mining acceleration
+Maximum Mining Acceleration
 </p>
 
-<button onclick="boost(1500)">
+<button onclick="activateBoost(1500)">
 Activate
 </button>
 
@@ -835,6 +1257,164 @@ Activate
 
 
 </div>
+
+
+
+</section>
+<section id="exchange" class="card hidden">
+
+
+<h2>
+🔄 DND Exchange
+</h2>
+
+
+
+<p>
+
+Internal ecosystem exchange system.
+
+</p>
+
+
+
+<div class="status">
+
+Current reference rate:
+
+<br>
+
+<b>
+1 DND = 1 USDT
+</b>
+
+</div>
+
+
+
+<br>
+
+
+
+<h3>
+DND → USDT
+</h3>
+
+
+
+<input 
+id="dndExchangeAmount"
+type="number"
+placeholder="Enter DND amount"
+>
+
+
+
+<button onclick="exchangeDND()">
+
+Exchange DND
+
+</button>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+<h3>
+USDT → DND
+</h3>
+
+
+
+<input 
+id="usdtExchangeAmount"
+type="number"
+placeholder="Enter USDT amount"
+>
+
+
+
+<button onclick="exchangeUSDT()">
+
+Exchange USDT
+
+</button>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+<h3>
+BTC → USDT
+</h3>
+
+
+
+<input 
+id="btcExchangeAmount"
+type="number"
+placeholder="BTC amount"
+>
+
+
+
+<button onclick="exchangeBTC()">
+
+Convert BTC
+
+</button>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+<h3>
+TRX → USDT
+</h3>
+
+
+
+<input 
+id="trxExchangeAmount"
+type="number"
+placeholder="TRX amount"
+>
+
+
+
+<button onclick="exchangeTRX()">
+
+Convert TRX
+
+</button>
+
+
+
+
+
+<div class="status" id="exchangeMessage">
+
+
+</div>
+
 
 
 </section>
@@ -847,17 +1427,27 @@ Activate
 
 
 
-<section id="exchange" class="card hidden">
+<section id="walletInfo" class="card">
 
 
 <h2>
-🔄 Exchange DND
+💼 Multi Currency Wallet
 </h2>
 
 
 
+<div class="grid">
+
+
+
+<div class="box">
+
+<h3>
+DND
+</h3>
+
 <p>
-Current rate:
+Digital Network Dynamics Token
 </p>
 
 
@@ -866,23 +1456,74 @@ Current rate:
 </div>
 
 
-
-<input 
-id="exchangeAmount"
-placeholder="DND amount"
->
-
-
-<button onclick="exchangeDND()">
-Exchange
-</button>
+</div>
 
 
 
-<div id="exchangeMessage">
+
+<div class="box">
+
+<h3>
+USDT
+</h3>
+
+<p>
+Stable digital currency balance
+</p>
+
+
+<div class="number">
+USDT
+</div>
+
 
 </div>
 
+
+
+
+<div class="box">
+
+<h3>
+Bitcoin
+</h3>
+
+<p>
+BTC wallet balance
+</p>
+
+
+<div class="number">
+BTC
+</div>
+
+
+</div>
+
+
+
+
+<div class="box">
+
+<h3>
+TRX
+</h3>
+
+<p>
+TRON network balance
+</p>
+
+
+<div class="number">
+TRX
+</div>
+
+
+</div>
+
+
+
+</div>
 
 
 </section>
@@ -895,8 +1536,12 @@ Exchange
 
 
 <p>
-Deposit funds to your wallet. After confirmation, balance will be updated.
+
+Select a currency and send funds to the official wallet address.
+After confirmation, the balance will be updated.
+
 </p>
+
 
 
 
@@ -906,8 +1551,9 @@ Deposit funds to your wallet. After confirmation, balance will be updated.
 
 <div class="box">
 
+
 <h3>
-USDT TRC20
+💵 USDT TRC20
 </h3>
 
 
@@ -916,14 +1562,20 @@ Minimum deposit: 10 USDT
 </p>
 
 
-<p>
+<div class="status">
+
 TPRe3zZ7t9HgGd2ybh6k3xiCQbrCNwLeHB
-</p>
+
+</div>
 
 
-<button onclick="createDeposit('USDT')">
+
+<button onclick="createDeposit('USDT TRC20')">
+
 Create Deposit
+
 </button>
+
 
 
 </div>
@@ -932,10 +1584,13 @@ Create Deposit
 
 
 
+
+
 <div class="box">
 
+
 <h3>
-Bitcoin
+₿ Bitcoin
 </h3>
 
 
@@ -944,14 +1599,20 @@ Minimum deposit: 50 USD
 </p>
 
 
-<p>
+<div class="status">
+
 bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw
-</p>
+
+</div>
 
 
-<button onclick="createDeposit('BTC')">
+
+<button onclick="createDeposit('Bitcoin')">
+
 Create Deposit
+
 </button>
+
 
 
 </div>
@@ -960,10 +1621,13 @@ Create Deposit
 
 
 
+
+
 <div class="box">
 
+
 <h3>
-TRX
+⚡ TRX
 </h3>
 
 
@@ -972,26 +1636,35 @@ Minimum deposit: 100 USD
 </p>
 
 
-<p>
+<div class="status">
+
 TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza
-</p>
+
+</div>
+
 
 
 <button onclick="createDeposit('TRX')">
+
 Create Deposit
+
 </button>
 
 
-</div>
-
-
 
 </div>
+
+
+
+</div>
+
 
 
 <div class="status" id="depositMessage">
 
+
 </div>
+
 
 
 </section>
@@ -1004,6 +1677,72 @@ Create Deposit
 
 
 
+<section class="card">
+
+
+<h2>
+💳 Future Payment Methods
+</h2>
+
+
+
+<p>
+
+Additional payment methods are planned for future ecosystem development.
+
+</p>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+<h3>
+VISA
+</h3>
+
+<p>
+Coming soon
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<h3>
+Mastercard
+</h3>
+
+<p>
+Coming soon
+</p>
+
+</div>
+
+
+
+<div class="box">
+
+<h3>
+PayPal
+</h3>
+
+<p>
+Coming soon
+</p>
+
+</div>
+
+
+
+</div>
+
+</section>
 <section id="withdraw" class="card hidden">
 
 
@@ -1013,26 +1752,46 @@ Create Deposit
 
 
 <p>
-Minimum withdrawal: 10 USDT
+
+Create a withdrawal request from your wallet.
+
 </p>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+
+<h3>
+Currency
+</h3>
 
 
 
 <select id="withdrawCurrency">
 
 
-<option>
+<option value="USDT">
 USDT
 </option>
 
 
-<option>
-BTC
+<option value="BTC">
+Bitcoin
 </option>
 
 
-<option>
+<option value="TRX">
 TRX
+</option>
+
+
+<option value="DND">
+DND
 </option>
 
 
@@ -1040,29 +1799,160 @@ TRX
 
 
 
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+Amount
+</h3>
+
+
+
 <input 
 id="withdrawAmount"
-placeholder="Amount"
+type="number"
+placeholder="Enter amount"
 >
+
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+Wallet Address
+</h3>
 
 
 
 <input 
 id="withdrawAddress"
-placeholder="Wallet address"
+placeholder="Enter wallet address"
 >
 
 
 
+</div>
+
+
+
+</div>
+
+
+
+<br>
+
+
 <button onclick="createWithdraw()">
 
-Create Withdrawal
+Create Withdrawal Request
 
 </button>
 
 
 
+
 <div class="status" id="withdrawMessage">
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section id="security" class="card">
+
+
+<h2>
+🔐 Security System
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="box">
+
+
+<h3>
+Wallet Protection
+</h3>
+
+
+<p>
+
+Multi-currency wallet management and transaction tracking.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+Transaction Monitoring
+</h3>
+
+
+<p>
+
+Every operation is stored in transaction history.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h3>
+User Control
+</h3>
+
+
+<p>
+
+Users can manage balances, exchanges and requests.
+
+</p>
+
+
+</div>
+
+
 
 </div>
 
@@ -1086,165 +1976,106 @@ Create Withdrawal
 </h2>
 
 
-<div id="historyList">
+
+<div id="transactionHistory">
 
 
-No transactions
-
+No transactions yet.
 
 </div>
 
 
 
 </section>
-
-
-
-
-
-<section class="card">
-
-
-<h2>
-🌍 Future Payment Integration
-</h2>
-
-
-<p>
-
-Soon the ecosystem will support additional payment methods including VISA, Mastercard and PayPal integration.
-
-</p>
-
-
-</section>
-
-
-
-
-
-<section class="card">
-
-
-<h2>
-💎 DND Stable Digital Asset Concept
-</h2>
-
-
-<p>
-
-DND ecosystem is designed around a stable digital value concept with an internal exchange rate model.
-
-</p>
-
-
-<p>
-
-Exchange reference:
-<b>
-1 DND = 1 USDT
-</b>
-
-</p>
-
-
-</section>
 <script>
 
 
-let dndBalance =
-Number(localStorage.getItem("dndBalance")) || 0;
+// =======================
+// DND WALLET SYSTEM
+// =======================
 
 
-let usdtBalance =
-Number(localStorage.getItem("usdtBalance")) || 0;
+let wallet = {
 
 
-let btcBalance =
-Number(localStorage.getItem("btcBalance")) || 0;
+DND:
+0,
 
 
-let trxBalance =
-Number(localStorage.getItem("trxBalance")) || 0;
+USDT:
+0,
 
 
-
-let transactions =
-JSON.parse(localStorage.getItem("transactions")) || [];
-
+BTC:
+0,
 
 
-let mining = false;
+TRX:
+0
 
-let miningInterval;
 
-let miningMultiplier = 1;
-
+};
 
 
 
 
 
-function saveData(){
+let transactions = [];
 
 
-localStorage.setItem(
-"dndBalance",
-dndBalance
-);
+
+let miningActive = false;
 
 
-localStorage.setItem(
-"usdtBalance",
-usdtBalance
-);
+let miningTimer;
 
 
-localStorage.setItem(
-"btcBalance",
-btcBalance
-);
+let miningPower = 1;
 
 
-localStorage.setItem(
-"trxBalance",
-trxBalance
-);
 
 
-localStorage.setItem(
-"transactions",
-JSON.stringify(transactions)
-);
+
+
+
+// LOAD DATA
+
+
+function loadData(){
+
+
+let savedWallet =
+localStorage.getItem("DND_wallet");
+
+
+let savedHistory =
+localStorage.getItem("DND_history");
+
+
+
+if(savedWallet){
+
+
+wallet =
+JSON.parse(savedWallet);
 
 
 }
 
 
 
+if(savedHistory){
+
+
+transactions =
+JSON.parse(savedHistory);
+
+
+}
 
 
 
-
-
-
-function updateBalance(){
-
-
-document.getElementById("dndBalance").innerHTML =
-dndBalance.toFixed(2);
-
-
-document.getElementById("usdtBalance").innerHTML =
-usdtBalance.toFixed(2);
-
-
-document.getElementById("btcBalance").innerHTML =
-btcBalance.toFixed(6);
-
-
-document.getElementById("trxBalance").innerHTML =
-trxBalance.toFixed(2);
+updateWallet();
 
 
 showHistory();
@@ -1260,20 +2091,31 @@ showHistory();
 
 
 
-function show(page){
+// SAVE DATA
 
 
-document.querySelectorAll(".card")
-.forEach(function(card){
-
-card.classList.add("hidden");
-
-});
+function saveData(){
 
 
 
-document.getElementById(page)
-.classList.remove("hidden");
+localStorage.setItem(
+
+"DND_wallet",
+
+JSON.stringify(wallet)
+
+);
+
+
+
+localStorage.setItem(
+
+"DND_history",
+
+JSON.stringify(transactions)
+
+);
+
 
 
 }
@@ -1286,33 +2128,697 @@ document.getElementById(page)
 
 
 
-function startMining(){
+// UPDATE BALANCES
 
 
-if(mining)
-return;
-
-
-mining=true;
-
-
-document.getElementById("miningStatus")
-.innerHTML="ACTIVE";
+function updateWallet(){
 
 
 
-miningInterval =
-setInterval(function(){
+let dnd =
+document.getElementById("dndBalance");
+
+let usdt =
+document.getElementById("usdtBalance");
+
+let btc =
+document.getElementById("btcBalance");
+
+let trx =
+document.getElementById("trxBalance");
 
 
-dndBalance +=
-0.01 * miningMultiplier;
+
+
+if(dnd)
+dnd.innerHTML =
+wallet.DND.toFixed(4);
+
+
+
+if(usdt)
+usdt.innerHTML =
+wallet.USDT.toFixed(4);
+
+
+
+if(btc)
+btc.innerHTML =
+wallet.BTC.toFixed(8);
+
+
+
+if(trx)
+trx.innerHTML =
+wallet.TRX.toFixed(4);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ADD TRANSACTION
+
+
+function addTransaction(
+type,
+amount,
+currency,
+status
+){
+
+
+
+transactions.unshift({
+
+
+type:type,
+
+
+amount:amount,
+
+
+currency:currency,
+
+
+status:status,
+
+
+date:
+new Date().toLocaleString()
+
+
+});
 
 
 
 saveData();
 
-updateBalance();
+
+showHistory();
+
+
+}
+
+
+
+
+
+
+
+
+
+// HISTORY DISPLAY
+
+
+function showHistory(){
+
+
+let box =
+document.getElementById(
+"transactionHistory"
+);
+
+
+
+if(!box)
+return;
+
+
+
+if(transactions.length===0){
+
+
+box.innerHTML=
+"No transactions yet.";
+
+
+return;
+
+
+}
+
+
+
+box.innerHTML="";
+
+
+
+transactions.forEach(function(t){
+
+
+
+box.innerHTML += `
+
+
+<div class="status">
+
+
+<b>
+${t.type}
+</b>
+
+<br>
+
+
+Amount:
+${t.amount}
+
+
+<br>
+
+
+Currency:
+${t.currency}
+
+
+<br>
+
+
+Status:
+${t.status}
+
+
+<br>
+
+
+Date:
+${t.date}
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+// NAVIGATION
+
+
+function openSection(id){
+
+
+
+document
+.querySelectorAll(".card")
+.forEach(function(section){
+
+
+section.classList.add("hidden");
+
+
+});
+
+
+
+let target =
+document.getElementById(id);
+
+
+
+if(target){
+
+
+target.classList.remove("hidden");
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+loadData();
+
+
+</script>
+<script>
+
+
+// =======================
+// EXCHANGE SYSTEM
+// =======================
+
+
+// 1 DND = 1 USDT
+
+const DND_RATE = 1;
+
+
+
+
+
+function exchangeDND(){
+
+
+let amount =
+Number(
+document.getElementById(
+"dndExchangeAmount"
+).value
+);
+
+
+
+if(amount<=0 ||
+amount>wallet.DND){
+
+
+document.getElementById(
+"exchangeMessage"
+).innerHTML =
+"❌ Not enough DND";
+
+
+return;
+
+
+}
+
+
+
+wallet.DND -= amount;
+
+
+wallet.USDT += amount * DND_RATE;
+
+
+
+addTransaction(
+
+"Exchange",
+
+amount,
+
+"DND → USDT",
+
+"COMPLETED"
+
+);
+
+
+
+document.getElementById(
+"exchangeMessage"
+).innerHTML =
+"✅ Exchange completed";
+
+
+updateWallet();
+
+
+}
+
+
+
+
+
+
+
+
+
+function exchangeUSDT(){
+
+
+let amount =
+Number(
+document.getElementById(
+"usdtExchangeAmount"
+).value
+);
+
+
+
+if(amount<=0 ||
+amount>wallet.USDT){
+
+
+document.getElementById(
+"exchangeMessage"
+).innerHTML =
+"❌ Not enough USDT";
+
+
+return;
+
+
+}
+
+
+
+wallet.USDT -= amount;
+
+
+wallet.DND += amount;
+
+
+
+addTransaction(
+
+"Exchange",
+
+amount,
+
+"USDT → DND",
+
+"COMPLETED"
+
+);
+
+
+
+updateWallet();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function exchangeBTC(){
+
+
+let amount =
+Number(
+document.getElementById(
+"btcExchangeAmount"
+).value
+);
+
+
+
+if(amount<=0 ||
+amount>wallet.BTC){
+
+
+return;
+
+
+}
+
+
+
+let usdt =
+amount * 60000;
+
+
+
+wallet.BTC -= amount;
+
+
+wallet.USDT += usdt;
+
+
+
+addTransaction(
+
+"Exchange",
+
+amount,
+
+"BTC → USDT",
+
+"COMPLETED"
+
+);
+
+
+
+updateWallet();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function exchangeTRX(){
+
+
+let amount =
+Number(
+document.getElementById(
+"trxExchangeAmount"
+).value
+);
+
+
+
+if(amount<=0 ||
+amount>wallet.TRX){
+
+
+return;
+
+
+}
+
+
+
+let usdt =
+amount * 0.12;
+
+
+
+wallet.TRX -= amount;
+
+
+wallet.USDT += usdt;
+
+
+
+addTransaction(
+
+"Exchange",
+
+amount,
+
+"TRX → USDT",
+
+"COMPLETED"
+
+);
+
+
+
+updateWallet();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =======================
+// DEPOSIT
+// =======================
+
+
+function createDeposit(currency){
+
+
+
+addTransaction(
+
+"Deposit",
+
+0,
+
+currency,
+
+"PENDING CONFIRMATION"
+
+);
+
+
+
+document.getElementById(
+"depositMessage"
+).innerHTML =
+
+"✅ Deposit request created";
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =======================
+// WITHDRAW
+// =======================
+
+
+function createWithdraw(){
+
+
+
+let currency =
+document.getElementById(
+"withdrawCurrency"
+).value;
+
+
+
+let amount =
+Number(
+document.getElementById(
+"withdrawAmount"
+).value
+);
+
+
+
+let address =
+document.getElementById(
+"withdrawAddress"
+).value;
+
+
+
+
+if(!amount || !address){
+
+
+document.getElementById(
+"withdrawMessage"
+).innerHTML =
+
+"❌ Fill all fields";
+
+
+return;
+
+
+}
+
+
+
+
+
+addTransaction(
+
+"Withdrawal",
+
+amount,
+
+currency+
+
+" Wallet: "+
+
+address,
+
+"PENDING"
+
+);
+
+
+
+document.getElementById(
+"withdrawMessage"
+).innerHTML =
+
+"✅ Withdrawal request created";
+
+
+
+}
+
+
+
+
+
+
+
+// =======================
+// MINING SYSTEM
+// =======================
+
+
+
+function startMining(){
+
+
+
+if(miningActive)
+return;
+
+
+
+miningActive=true;
+
+
+
+document.getElementById(
+"mineStatus"
+).innerHTML =
+"ACTIVE";
+
+
+
+miningTimer =
+setInterval(function(){
+
+
+
+wallet.DND +=
+0.01 * miningPower;
+
+
+
+updateWallet();
+
+
+saveData();
 
 
 
@@ -1333,14 +2839,19 @@ updateBalance();
 function stopMining(){
 
 
-mining=false;
+
+miningActive=false;
 
 
-clearInterval(miningInterval);
+clearInterval(miningTimer);
 
 
-document.getElementById("miningStatus")
-.innerHTML="OFF";
+
+document.getElementById(
+"mineStatus"
+).innerHTML =
+"OFF";
+
 
 
 }
@@ -1353,23 +2864,28 @@ document.getElementById("miningStatus")
 
 
 
-function boost(value){
-
-
-miningMultiplier += value/100;
+function activateBoost(power){
 
 
 
-document.getElementById("miningSpeed")
-.innerHTML =
-miningMultiplier.toFixed(2)+"x";
+miningPower +=
+power/100;
+
+
+
+document.getElementById(
+"mineSpeed"
+).innerHTML =
+
+miningPower.toFixed(2)+"x";
+
 
 
 addTransaction(
 
-"Mining Accelerator",
+"Mining Boost",
 
-value+"%",
+power+"%",
 
 "DND Mining",
 
@@ -1378,102 +2894,340 @@ value+"%",
 );
 
 
-}
-
-
-
-
-
-
-
-
-
-function exchangeDND(){
-
-
-let amount =
-Number(
-document.getElementById("exchangeAmount").value
-);
-
-
-
-if(amount<=0 || amount>dndBalance){
-
-
-document.getElementById("exchangeMessage")
-.innerHTML=
-"Not enough DND";
-
-
-return;
-
 
 }
 
 
 
-dndBalance -= amount;
+</script>
+<script>
 
 
-usdtBalance += amount;
+// =======================
+// LANGUAGE SYSTEM
+// =======================
 
 
+const languages = {
 
-addTransaction(
 
+en:{
+
+
+title:
+"Digital Network Dynamics",
+
+
+subtitle:
+"The future digital ecosystem",
+
+
+home:
+"Home",
+
+
+dashboard:
+"Wallet",
+
+
+mining:
+"Mining",
+
+
+exchange:
 "Exchange",
 
-amount,
 
-"DND → USDT",
+deposit:
+"Deposit",
 
-"COMPLETED"
 
+withdraw:
+"Withdraw",
+
+
+history:
+"History",
+
+
+welcome:
+"Welcome to DND",
+
+
+about:
+"Digital Network Dynamics is a next generation digital ecosystem."
+
+
+},
+
+
+
+
+zh:{
+
+
+title:
+"数字网络动态",
+
+
+subtitle:
+"未来数字生态系统",
+
+
+home:
+"主页",
+
+
+dashboard:
+"钱包",
+
+
+mining:
+"挖矿",
+
+
+exchange:
+"兑换",
+
+
+deposit:
+"充值",
+
+
+withdraw:
+"提现",
+
+
+history:
+"历史",
+
+
+welcome:
+"欢迎来到DND",
+
+
+about:
+"下一代数字生态系统"
+
+
+},
+
+
+
+
+es:{
+
+
+title:
+"Digital Network Dynamics",
+
+
+subtitle:
+"El futuro ecosistema digital",
+
+
+home:
+"Inicio",
+
+
+dashboard:
+"Cartera",
+
+
+mining:
+"Minería",
+
+
+exchange:
+"Intercambio",
+
+
+deposit:
+"Depósito",
+
+
+withdraw:
+"Retirar",
+
+
+history:
+"Historial",
+
+
+welcome:
+"Bienvenido a DND",
+
+
+about:
+"Ecosistema digital de próxima generación"
+
+
+},
+
+
+
+
+pl:{
+
+
+title:
+"Digital Network Dynamics",
+
+
+subtitle:
+"Przyszłość cyfrowego ekosystemu",
+
+
+home:
+"Start",
+
+
+dashboard:
+"Portfel",
+
+
+mining:
+"Kopanie",
+
+
+exchange:
+"Wymiana",
+
+
+deposit:
+"Depozyt",
+
+
+withdraw:
+"Wypłata",
+
+
+history:
+"Historia",
+
+
+welcome:
+"Witamy w DND",
+
+
+about:
+"Nowoczesny ekosystem cyfrowy"
+
+
+},
+
+
+
+
+fr:{
+
+
+title:
+"Digital Network Dynamics",
+
+
+subtitle:
+"L'écosystème numérique du futur",
+
+
+home:
+"Accueil",
+
+
+dashboard:
+"Portefeuille",
+
+
+mining:
+"Minage",
+
+
+exchange:
+"Échange",
+
+
+deposit:
+"Dépôt",
+
+
+withdraw:
+"Retrait",
+
+
+history:
+"Historique",
+
+
+welcome:
+"Bienvenue dans DND",
+
+
+about:
+"Écosystème numérique nouvelle génération"
+
+
+}
+
+
+};
+
+
+
+
+
+
+
+
+
+function changeLanguage(){
+
+
+
+let lang =
+
+document.getElementById(
+"languageSelect"
+).value;
+
+
+
+document.querySelectorAll("[data-key]")
+.forEach(function(element){
+
+
+
+let key =
+element.getAttribute(
+"data-key"
 );
 
 
 
-document.getElementById("exchangeMessage")
-.innerHTML=
-"Exchange completed";
+if(
+languages[lang] &&
+languages[lang][key]
+){
 
 
-updateBalance();
+element.innerHTML =
+languages[lang][key];
 
 
 }
 
 
 
+});
 
 
 
-
-
-
-function createDeposit(currency){
-
-
-addTransaction(
-
-"Deposit Request",
-
-0,
-
-currency,
-
-"PENDING CONFIRMATION"
-
+localStorage.setItem(
+"DND_language",
+lang
 );
 
 
 
-document.getElementById("depositMessage")
-.innerHTML=
-"Deposit request created";
-
-
 }
 
 
@@ -1484,59 +3238,98 @@ document.getElementById("depositMessage")
 
 
 
-function createWithdraw(){
+function loadLanguage(){
 
 
-let currency =
-document.getElementById("withdrawCurrency").value;
+let saved =
 
-
-
-let amount =
-document.getElementById("withdrawAmount").value;
-
-
-
-let address =
-document.getElementById("withdrawAddress").value;
-
-
-
-
-if(!amount || !address){
-
-
-document.getElementById("withdrawMessage")
-.innerHTML=
-"Fill all fields";
-
-
-return;
-
-
-}
-
-
-
-addTransaction(
-
-"Withdrawal",
-
-amount,
-
-currency+
-" Address: "+
-address,
-
-"PENDING"
-
+localStorage.getItem(
+"DND_language"
 );
 
 
 
-document.getElementById("withdrawMessage")
-.innerHTML=
-"Withdrawal request created";
+if(saved){
+
+
+document.getElementById(
+"languageSelect"
+).value =
+saved;
+
+
+
+changeLanguage();
 
 
 }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// UPDATE STATISTICS
+
+
+setInterval(function(){
+
+
+
+let users =
+document.getElementById(
+"activeUsers"
+);
+
+
+
+if(users){
+
+
+let value =
+Number(users.innerHTML);
+
+
+users.innerHTML =
+value +
+Math.floor(
+Math.random()*50
+);
+
+
+}
+
+
+
+},60000);
+
+
+
+
+
+
+
+
+loadLanguage();
+
+
+
+</script>
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>
