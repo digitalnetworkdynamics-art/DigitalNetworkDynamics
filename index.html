@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Digital Network Dynamics | DND</title>
-
-<meta name="description" content="Digital Network Dynamics - Web3 ecosystem, mining platform and digital innovation">
+<title>DND | Digital Network Dynamics</title>
 
 
 <style>
@@ -21,35 +19,42 @@ box-sizing:border-box;
 body{
 
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial, sans-serif;
+
 background:
-radial-gradient(circle at top,#420080,#080014 55%);
+linear-gradient(135deg,#05000f,#25004d,#080015);
+
 color:white;
 
 }
 
 
+
 header{
 
-padding:60px 20px;
 text-align:center;
+padding:50px 20px;
 
 }
+
 
 
 .logo{
 
-font-size:90px;
+font-size:80px;
 font-weight:900;
+
 color:#c56cff;
+
 text-shadow:
-0 0 20px #a000ff,
-0 0 40px #7000ff;
+0 0 20px #9b00ff,
+0 0 50px #7000ff;
 
 }
 
 
-.subtitle{
+
+header p{
 
 font-size:22px;
 color:#ddd;
@@ -62,8 +67,8 @@ nav{
 
 display:flex;
 justify-content:center;
-gap:10px;
 flex-wrap:wrap;
+gap:10px;
 padding:20px;
 
 }
@@ -72,20 +77,27 @@ padding:20px;
 
 button{
 
-background:#8b00ff;
+background:#8c00ff;
+
 color:white;
+
 border:none;
-padding:14px 25px;
+
+padding:14px 22px;
+
 border-radius:15px;
+
 cursor:pointer;
+
 font-weight:bold;
 
 }
 
 
+
 button:hover{
 
-background:#c35cff;
+background:#c05cff;
 
 }
 
@@ -93,7 +105,8 @@ background:#c35cff;
 
 .container{
 
-max-width:1100px;
+max-width:1200px;
+
 margin:auto;
 
 }
@@ -102,16 +115,59 @@ margin:auto;
 
 .card{
 
-margin:25px 15px;
-padding:30px;
-
 background:
 rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+
+margin:20px;
+
+padding:30px;
 
 border-radius:25px;
 
 box-shadow:
-0 0 25px rgba(150,0,255,0.5);
+0 0 30px rgba(150,0,255,.4);
+
+}
+
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+}
+
+
+
+.stat{
+
+background:
+rgba(255,255,255,.06);
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+}
+
+
+
+.number{
+
+font-size:40px;
+
+font-weight:bold;
+
+color:#db8aff;
 
 }
 
@@ -127,75 +183,22 @@ display:none;
 
 h1,h2,h3{
 
-color:#e0a0ff;
+color:#e2a0ff;
 
 }
 
 
 
-.number{
-
-font-size:45px;
-font-weight:bold;
-color:#d58aff;
-
-}
-
-
-
-.grid{
-
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-}
-
-
-
-.stat{
-
-text-align:center;
-padding:25px;
-
-background:
-rgba(255,255,255,0.05);
-
-border-radius:20px;
-
-}
-
-
-
-.progress{
-
-height:15px;
-background:#222;
-border-radius:20px;
-overflow:hidden;
-
-}
-
-
-
-.progress div{
-
-height:100%;
-width:35%;
-background:#b000ff;
-
-}
-
-
-
-input{
+input,select{
 
 width:90%;
+
 padding:14px;
+
 margin:8px;
-border-radius:10px;
+
+border-radius:12px;
+
 border:none;
 
 }
@@ -204,11 +207,12 @@ border:none;
 
 </style>
 
+
 </head>
 
 
-
 <body>
+
 
 
 <header>
@@ -224,19 +228,27 @@ Digital Network Dynamics
 </h1>
 
 
-<p class="subtitle">
-Building the next generation digital ecosystem
+<p>
+Next Generation Digital Ecosystem
 </p>
+
 
 
 </header>
 
 
 
+
 <nav>
+
 
 <button onclick="openPage('home')">
 🏠 Home
+</button>
+
+
+<button onclick="openPage('dashboard')">
+📊 Dashboard
 </button>
 
 
@@ -245,38 +257,33 @@ Building the next generation digital ecosystem
 </button>
 
 
-<button onclick="openPage('wallet')">
-💼 Wallet
+<button onclick="openPage('deposit')">
+💳 Deposit
 </button>
 
 
-<button onclick="openPage('account')">
-👤 Account
+<button onclick="openPage('withdraw')">
+💸 Withdraw
 </button>
 
 
-<button onclick="openPage('boost')">
-💎 Mining Boost
+<button onclick="openPage('wallets')">
+👛 Wallets
 </button>
 
 
-<button onclick="openPage('whitepaper')">
-📘 Whitepaper
+<button onclick="openPage('exchange')">
+🔄 Exchange
 </button>
 
 
-<button onclick="openPage('roadmap')">
-🗺 Roadmap
+<button onclick="openPage('accelerator')">
+⚡ Accelerator
 </button>
 
 
-<button onclick="openPage('team')">
-👥 Team
-</button>
-
-
-<button onclick="openPage('ecosystem')">
-🌍 Ecosystem
+<button onclick="openPage('profile')">
+👤 Profile
 </button>
 
 
@@ -284,7 +291,10 @@ Building the next generation digital ecosystem
 
 
 
+
 <div class="container">
+
+
 
 
 
@@ -292,14 +302,16 @@ Building the next generation digital ecosystem
 
 
 <h2>
-Welcome to Digital Network Dynamics
+Welcome to DND
 </h2>
 
 
 <p>
-DND is a digital ecosystem focused on Web3 technologies,
-community development and innovative financial infrastructure.
+Digital Network Dynamics is a modern digital ecosystem
+combining mining technology, digital wallets,
+community development and Web3 innovation.
 </p>
+
 
 
 <div class="grid">
@@ -308,173 +320,132 @@ community development and innovative financial infrastructure.
 <div class="stat">
 
 <h3>
-👥 Active Users
+👥 Users
 </h3>
+
 
 <div class="number" id="users">
 247382
 </div>
 
+
 </div>
+
 
 
 
 <div class="stat">
 
 <h3>
-⚡ Network Status
+🌎 Network
 </h3>
+
 
 <div class="number">
 ONLINE
 </div>
 
+
 </div>
+
 
 
 
 <div class="stat">
 
 <h3>
-🌎 Global Reach
+⚡ Status
 </h3>
+
 
 <div class="number">
-Worldwide
-</div>
-
-</div>
-
-
+ACTIVE
 </div>
 
 
 </div>
-<div id="mining" class="card hidden">
+
+
+</div>
+
+
+</div>
+<div id="dashboard" class="card hidden">
 
 
 <h2>
-⛏ DND Mining Platform
+📊 DND Dashboard
 </h2>
 
 
-<p>
-Participate in the DND mining prototype and grow your digital balance.
-</p>
+<div class="grid">
 
 
 
-<h3 id="status">
-⚪ Mining Inactive
-</h3>
-
-
-
-<div class="number" id="balance">
-0 DND
-</div>
-
-
-
-<p>
-Mining Speed:
-</p>
-
-
-<div class="progress">
-
-<div id="speedBar"></div>
-
-</div>
-
-
-
-<br>
-
-
-<button onclick="startMining()">
-START MINING
-</button>
-
-
-<button onclick="stopMining()">
-STOP MINING
-</button>
-
-
-</div>
-
-
-
-
-
-
-<div id="wallet" class="card hidden">
-
-
-<h2>
-💼 DND Digital Wallet
-</h2>
-
-
-<p>
-Your personal DND wallet address:
-</p>
-
-
-<h3 id="walletAddress">
-Generating...
-</h3>
-
+<div class="stat">
 
 <h3>
-Balance
+DND Balance
 </h3>
 
-
-<div class="number" id="walletBalance">
+<div class="number" id="dndBalance">
 0 DND
 </div>
 
-
-
 </div>
 
 
 
 
 
+<div class="stat">
 
-
-<div id="account" class="card hidden">
-
-
-<h2>
-👤 DND Personal Account
-</h2>
-
-
-
-<input id="username" placeholder="Username">
-
-
-<input id="email" placeholder="Email">
-
-
-<input id="password" type="password" placeholder="Password">
-
-
-
-<button onclick="createAccount()">
-Create Account
-</button>
-
-
-
-<h3 id="accountResult">
-
+<h3>
+USDT Balance
 </h3>
 
+<div class="number" id="usdtBalance">
+0 USDT
+</div>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+Bitcoin Balance
+</h3>
+
+<div class="number" id="btcBalance">
+0 BTC
+</div>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+TRX Balance
+</h3>
+
+<div class="number" id="trxBalance">
+0 TRX
+</div>
+
+</div>
+
+
+</div>
+
+
 
 </div>
 
@@ -484,18 +455,14 @@ Create Account
 
 
 
-<div id="boost" class="card hidden">
+
+
+<div id="wallets" class="card hidden">
 
 
 <h2>
-💎 DND Mining Boost Program
+👛 DND Wallet Center
 </h2>
-
-
-
-<p>
-Support the development of the DND ecosystem and activate mining bonuses.
-</p>
 
 
 
@@ -506,18 +473,13 @@ Support the development of the DND ecosystem and activate mining bonuses.
 <div class="stat">
 
 
-<h2>
-💵 $50
-</h2>
-
-
 <h3>
-Starter Boost
+💎 DND Wallet
 </h3>
 
 
-<p>
-Mining speed increase package.
+<p id="dndWallet">
+DND-Generating...
 </p>
 
 
@@ -530,93 +492,8 @@ Mining speed increase package.
 <div class="stat">
 
 
-<h2>
-💵 $100
-</h2>
-
-
 <h3>
-Premium Boost x2
-</h3>
-
-
-<p>
-Mining speed increased by 2 times.
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-<h2>
-Crypto Support Addresses
-</h2>
-
-
-
-
-<div class="card">
-
-
-<h3>
-₿ Bitcoin
-</h3>
-
-
-<p>
-bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw
-</p>
-
-
-<button onclick="copyBTC()">
-Copy BTC
-</button>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-⚡ TRX
-</h3>
-
-
-<p>
-TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza
-</p>
-
-
-<button onclick="copyTRX()">
-Copy TRX
-</button>
-
-
-</div>
-
-
-
-
-
-
-<div class="card">
-
-
-<h3>
-💵 USDT TRC20
+💵 USDT Wallet
 </h3>
 
 
@@ -625,15 +502,692 @@ TPRe3zZ7t9HgGd2ybh6k3xiCQbrCNwLeHB
 </p>
 
 
-<button onclick="copyUSDT()">
-Copy USDT
-</button>
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<h3>
+₿ Bitcoin Wallet
+</h3>
+
+
+<p>
+bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw
+</p>
 
 
 </div>
 
 
 
+
+
+<div class="stat">
+
+
+<h3>
+⚡ TRX Wallet
+</h3>
+
+
+<p>
+TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="profile" class="card hidden">
+
+
+<h2>
+👤 User Profile
+</h2>
+
+
+
+<input 
+id="username"
+placeholder="Username"
+>
+
+
+
+<input 
+id="email"
+placeholder="Email"
+>
+
+
+
+<input 
+id="password"
+type="password"
+placeholder="Password"
+>
+
+
+
+<button onclick="saveProfile()">
+
+Save Profile
+
+</button>
+
+
+
+<h3 id="profileStatus">
+
+</h3>
+
+
+</div>
+<div id="mining" class="card hidden">
+
+
+<h2>
+⛏ DND Mining System
+</h2>
+
+
+
+<p>
+Mining status:
+</p>
+
+
+
+<h3 id="miningStatus">
+⚪ Inactive
+</h3>
+
+
+
+<div class="grid">
+
+
+<div class="stat">
+
+
+<h3>
+Current Balance
+</h3>
+
+
+<div class="number" id="mineBalance">
+0 DND
+</div>
+
+
+</div>
+
+
+
+
+<div class="stat">
+
+
+<h3>
+Mining Speed
+</h3>
+
+
+<div class="number" id="mineSpeed">
+1x
+</div>
+
+
+</div>
+
+
+
+
+<div class="stat">
+
+
+<h3>
+Mining Level
+</h3>
+
+
+<div class="number">
+Level 1
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<br>
+
+
+
+<button onclick="startMining()">
+▶ START MINING
+</button>
+
+
+
+<button onclick="stopMining()">
+⏹ STOP MINING
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="accelerator" class="card hidden">
+
+
+<h2>
+⚡ Mining Accelerator
+</h2>
+
+
+
+<p>
+Increase your mining speed with accelerator packages.
+</p>
+
+
+
+
+<div class="grid">
+
+
+
+<div class="stat">
+
+<h3>
+$5 Starter
+</h3>
+
+<p>
++10% Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$10 Basic
+</h3>
+
+<p>
++25% Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$20 Advanced
+</h3>
+
+<p>
++50% Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$50 Pro
+</h3>
+
+<p>
+x2 Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$100 Premium
+</h3>
+
+<p>
+x3 Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$200 Ultra
+</h3>
+
+<p>
+x5 Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$500 Elite
+</h3>
+
+<p>
+x10 Mining Speed
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+$1000 Ultimate
+</h3>
+
+<p>
+Maximum Mining Boost
+</p>
+
+<button>
+Activate
+</button>
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+<div id="deposit" class="card hidden">
+
+
+<h2>
+💳 Deposit Center
+</h2>
+
+
+<p>
+Select a cryptocurrency to deposit funds into your wallet.
+</p>
+
+
+
+<div class="grid">
+
+
+
+<div class="stat">
+
+
+<h3>
+💵 USDT TRC20
+</h3>
+
+
+<p>
+Minimum deposit:
+</p>
+
+
+<div class="number">
+10 USDT
+</div>
+
+
+
+<p>
+Wallet:
+</p>
+
+
+<p>
+TPRe3zZ7t9HgGd2ybh6k3xiCQbrCNwLeHB
+</p>
+
+
+<button onclick="copyUSDT()">
+Copy Address
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="stat">
+
+
+<h3>
+₿ Bitcoin
+</h3>
+
+
+<p>
+Minimum deposit:
+</p>
+
+
+<div class="number">
+50 USD
+</div>
+
+
+
+<p>
+Wallet:
+</p>
+
+
+<p>
+bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw
+</p>
+
+
+<button onclick="copyBTC()">
+Copy Address
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="stat">
+
+
+<h3>
+⚡ TRX
+</h3>
+
+
+<p>
+Minimum deposit:
+</p>
+
+
+<div class="number">
+100 USD
+</div>
+
+
+
+<p>
+Wallet:
+</p>
+
+
+<p>
+TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza
+</p>
+
+
+<button onclick="copyTRX()">
+Copy Address
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<h3 id="depositStatus">
+
+</h3>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="withdraw" class="card hidden">
+
+
+<h2>
+💸 Withdraw Center
+</h2>
+
+
+
+<p>
+Minimum withdrawal amount:
+</p>
+
+
+
+<div class="number">
+10 USDT
+</div>
+
+
+
+
+<select id="withdrawCurrency">
+
+
+<option>
+USDT TRC20
+</option>
+
+
+<option>
+Bitcoin
+</option>
+
+
+<option>
+TRX
+</option>
+
+
+</select>
+
+
+
+
+<input 
+id="withdrawAmount"
+placeholder="Amount"
+>
+
+
+
+<input 
+id="withdrawAddress"
+placeholder="Wallet Address"
+>
+
+
+
+
+<button onclick="createWithdraw()">
+
+Create Withdrawal
+
+</button>
+
+
+
+
+<h3 id="withdrawStatus">
+
+</h3>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="exchange" class="card hidden">
+
+
+<h2>
+🔄 DND Exchange
+</h2>
+
+
+
+<h3>
+Current Test Exchange Rate
+</h3>
+
+
+<div class="number">
+1 DND = 1 USDT
+</div>
+
+
+
+
+<p>
+Convert your DND balance into USDT equivalent value.
+</p>
+
+
+
+
+<input 
+id="convertAmount"
+placeholder="DND amount"
+oninput="convertDND()"
+>
+
+
+
+<h3 id="convertResult">
+
+0 USDT
+
+</h3>
+
+
+
+
+  
 </div>
 <div id="whitepaper" class="card hidden">
 
@@ -644,15 +1198,16 @@ Copy USDT
 
 
 <h3>
-Overview
+Project Overview
 </h3>
 
 
 <p>
-Digital Network Dynamics (DND) is a digital ecosystem concept
-focused on creating accessible Web3 technologies,
-community-driven platforms and innovative digital solutions.
+Digital Network Dynamics is a digital ecosystem concept
+focused on creating innovative Web3 solutions,
+digital infrastructure and community technologies.
 </p>
+
 
 
 
@@ -662,9 +1217,9 @@ Vision
 
 
 <p>
-Our vision is to create a global digital environment where
-users can participate, learn and interact with next-generation
-technologies.
+Our vision is to build a global digital environment
+where users can interact with modern technologies,
+digital assets and decentralized solutions.
 </p>
 
 
@@ -676,46 +1231,50 @@ Mission
 
 
 <p>
-DND aims to combine digital infrastructure,
-community development and blockchain research
-into one ecosystem.
+DND focuses on developing accessible digital tools,
+community-driven platforms and future blockchain
+integration.
 </p>
+
 
 
 
 
 <h3>
-Technology Direction
+Technology Areas
 </h3>
 
 
 <p>
-• Digital wallet infrastructure
+• Digital wallets
 </p>
 
 
 <p>
-• Mining technology research
+• Mining technology
 </p>
 
 
 <p>
-• Web3 applications
+• Web3 ecosystem
 </p>
 
 
 <p>
-• Community platforms
+• Digital payments
 </p>
 
 
 <p>
-• Future blockchain solutions
+• Community infrastructure
 </p>
+
 
 
 
 </div>
+
+
 
 
 
@@ -732,20 +1291,23 @@ Technology Direction
 
 
 
-<div class="card">
+
+<div class="stat">
+
 
 <h3>
 Phase 1 — Foundation
 </h3>
 
+
 <p>
 ✅ Website prototype</p>
 
 <p>
-✅ Mining concept</p>
+✅ Mining interface</p>
 
 <p>
-✅ Community beginning</p>
+✅ Wallet system design</p>
 
 
 </div>
@@ -753,7 +1315,9 @@ Phase 1 — Foundation
 
 
 
-<div class="card">
+
+<div class="stat">
+
 
 <h3>
 Phase 2 — Platform Development
@@ -764,10 +1328,10 @@ Phase 2 — Platform Development
 🔄 User accounts</p>
 
 <p>
-🔄 Digital wallet</p>
+🔄 Mobile application</p>
 
 <p>
-🔄 Mobile application research</p>
+🔄 Advanced dashboard</p>
 
 
 </div>
@@ -776,7 +1340,8 @@ Phase 2 — Platform Development
 
 
 
-<div class="card">
+
+<div class="stat">
 
 
 <h3>
@@ -791,7 +1356,7 @@ Phase 3 — Ecosystem Expansion
 ⬜ Developer tools</p>
 
 <p>
-⬜ Global community growth</p>
+⬜ Global community</p>
 
 
 </div>
@@ -800,7 +1365,7 @@ Phase 3 — Ecosystem Expansion
 
 
 
-<div class="card">
+<div class="stat">
 
 
 <h3>
@@ -812,10 +1377,10 @@ Phase 4 — Global Network
 ⬜ International partnerships</p>
 
 <p>
-⬜ Advanced infrastructure</p>
+⬜ Payment integrations</p>
 
 <p>
-⬜ DND ecosystem expansion</p>
+⬜ Advanced infrastructure</p>
 
 
 </div>
@@ -823,6 +1388,108 @@ Phase 4 — Global Network
 
 
 </div>
+
+
+
+
+
+
+
+
+
+<div id="ecosystem" class="card hidden">
+
+
+<h2>
+🌍 DND Ecosystem
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="stat">
+
+
+<h3>
+👛 Wallet System
+</h3>
+
+
+<p>
+Digital asset management infrastructure.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<h3>
+⛏ Mining Platform
+</h3>
+
+
+<p>
+Mining technology and reward mechanics.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<h3>
+📱 Mobile Application
+</h3>
+
+
+<p>
+Future mobile ecosystem access.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+
+<h3>
+💳 Payment Infrastructure
+</h3>
+
+
+<p>
+Future integration with modern payment systems.
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
 
 
 
@@ -835,15 +1502,14 @@ Phase 4 — Global Network
 
 
 <h2>
-👥 DND Team & Advisors
+👥 DND Team
 </h2>
 
 
 <p>
-Digital Network Dynamics is building a multidisciplinary
-team focused on technology, analytics and community growth.
+DND is designed around specialists in technology,
+analytics, development and digital innovation.
 </p>
-
 
 
 
@@ -852,75 +1518,123 @@ team focused on technology, analytics and community growth.
 
 <div class="stat">
 
-
 <h3>
-Founder & Vision
+Technology Team
 </h3>
-
-
-<p>
-Project strategy and ecosystem direction.
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="stat">
-
-
-<h3>
-Technology Department
-</h3>
-
 
 <p>
 Software development and infrastructure.
 </p>
 
-
 </div>
-
-
 
 
 
 <div class="stat">
 
-
 <h3>
-Research & Analytics
+Analytics Team
 </h3>
 
-
 <p>
-Market analysis and digital trends research.
+Market research and digital trends analysis.
 </p>
 
+</div>
+
+
+
+<div class="stat">
+
+<h3>
+Community Team
+</h3>
+
+<p>
+User support and ecosystem growth.
+</p>
+
+</div>
+
 
 </div>
 
 
 
 </div>
-
-
-
-</div>
-<div id="ecosystem" class="card hidden">
+<div id="language" class="card hidden">
 
 
 <h2>
-🌍 DND Ecosystem
+🌐 Language Settings
 </h2>
 
 
 <p>
-The DND ecosystem is designed around digital tools,
-community interaction and future Web3 technologies.
+Select website language:
+</p>
+
+
+
+<select id="languageSelect" onchange="changeLanguage()">
+
+
+<option value="English">
+🇬🇧 English
+</option>
+
+
+<option value="Chinese">
+🇨🇳 Chinese
+</option>
+
+
+<option value="Spanish">
+🇪🇸 Spanish
+</option>
+
+
+<option value="Polish">
+🇵🇱 Polish
+</option>
+
+
+<option value="French">
+🇫🇷 French
+</option>
+
+
+</select>
+
+
+
+<h3 id="languageStatus">
+
+English selected
+
+</h3>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="payments" class="card hidden">
+
+
+<h2>
+💳 Future Payment Methods
+</h2>
+
+
+<p>
+DND is expanding payment infrastructure.
 </p>
 
 
@@ -928,178 +1642,61 @@ community interaction and future Web3 technologies.
 <div class="grid">
 
 
-<div class="stat">
-
-<h3>
-💼 Digital Wallet
-</h3>
-
-<p>
-Secure digital balance management and future integrations.
-</p>
-
-</div>
-
-
-
 
 <div class="stat">
 
 <h3>
-⛏ Mining Platform
-</h3>
-
-<p>
-Community-based mining prototype and reward mechanics.
-</p>
-
-</div>
-
-
-
-
-<div class="stat">
-
-<h3>
-📱 Mobile Application
-</h3>
-
-<p>
-Future DND application for global users.
-</p>
-
-</div>
-
-
-
-
-<div class="stat">
-
-<h3>
-🌐 Web3 Tools
-</h3>
-
-<p>
-Research and development of decentralized technologies.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div id="analytics" class="card hidden">
-
-
-<h2>
-📊 DND Analytics
-</h2>
-
-
-
-<div class="grid">
-
-
-<div class="stat">
-
-<h3>
-Active Users
-</h3>
-
-<div class="number">
-247382
-</div>
-
-</div>
-
-
-
-
-<div class="stat">
-
-<h3>
-Network Growth
-</h3>
-
-<div class="number">
-+12%
-</div>
-
-</div>
-
-
-
-
-
-<div class="stat">
-
-<h3>
-Platform Status
-</h3>
-
-<div class="number">
-Active
-</div>
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div id="partners" class="card hidden">
-
-
-<h2>
-🤝 Partners
-</h2>
-
-
-<p>
-DND is open to future partnerships with technology companies,
-developers, analysts and digital communities.
-</p>
-
-
-
-<div class="card">
-
-
-<h3>
-Become a Partner
+PayPal
 </h3>
 
 
 <p>
-For collaboration opportunities contact the DND team.
+Coming soon
 </p>
 
 
 </div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+VISA
+</h3>
+
+
+<p>
+Coming soon
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="stat">
+
+<h3>
+Mastercard
+</h3>
+
+
+<p>
+Coming soon
+</p>
+
+
+</div>
+
+
+
+</div>
+
 
 
 </div>
@@ -1116,8 +1713,9 @@ For collaboration opportunities contact the DND team.
 
 
 <h2>
-❓ Frequently Asked Questions
+❓ FAQ
 </h2>
+
 
 
 
@@ -1127,20 +1725,8 @@ What is DND?
 
 
 <p>
-DND is a digital ecosystem concept focused on Web3 innovation.
-</p>
-
-
-
-
-<h3>
-What is Mining?
-</h3>
-
-
-<p>
-Mining is a prototype feature allowing users to interact
-with the DND platform.
+Digital Network Dynamics is a digital ecosystem concept
+focused on Web3 technology and digital innovation.
 </p>
 
 
@@ -1148,14 +1734,41 @@ with the DND platform.
 
 
 <h3>
-How can I join?
+How does Mining work?
 </h3>
 
 
 <p>
-Create an account and become part of the community.
+Users can interact with the DND mining prototype
+and track their digital balance.
 </p>
 
+
+
+
+
+<h3>
+What wallets are supported?
+</h3>
+
+
+<p>
+DND interface supports DND, USDT, Bitcoin and TRX wallets.
+</p>
+
+
+
+
+
+<h3>
+What payments are planned?
+</h3>
+
+
+<p>
+Future payment integrations may include additional
+digital and traditional payment methods.
+</p>
 
 
 
@@ -1169,52 +1782,126 @@ Create an account and become part of the community.
 
 
 
-<div id="contact" class="card hidden">
+<div id="security" class="card hidden">
 
 
 <h2>
-📩 Contact DND
+🔐 Security Center
 </h2>
 
 
 <p>
-Official communication channels will be added.
+Account protection and security features.
 </p>
 
 
-<p>
-Email:
-</p>
 
+<div class="grid">
+
+
+<div class="stat">
 
 <h3>
-digitalnetworkdynamics@gmail.com
+Password Protection
 </h3>
+
+<p>
+Secure account access.
+</p>
+
+</div>
+
+
+
+<div class="stat">
+
+<h3>
+Wallet Management
+</h3>
+
+<p>
+Digital asset organization.
+</p>
+
+</div>
+
+
+
+<div class="stat">
+
+<h3>
+Activity Tracking
+</h3>
+
+<p>
+Transaction monitoring interface.
+</p>
+
+</div>
+
+
+
+</div>
 
 
 </div>
 <script>
 
 
-let balance =
-Number(localStorage.getItem("DND_balance")) || 0;
+let dndBalance =
+Number(localStorage.getItem("dndBalance")) || 0;
+
+
+let usdtBalance =
+Number(localStorage.getItem("usdtBalance")) || 0;
+
+
+let btcBalance =
+Number(localStorage.getItem("btcBalance")) || 0;
+
+
+let trxBalance =
+Number(localStorage.getItem("trxBalance")) || 0;
+
 
 
 let mining = false;
 
-let miningTimer;
+let miningInterval;
 
 
 
-function updateBalance(){
+let miningSpeed = 1;
 
 
-document.getElementById("balance").innerHTML =
-balance.toFixed(6)+" DND";
 
 
-document.getElementById("walletBalance").innerHTML =
-balance.toFixed(6)+" DND";
+
+function updateDashboard(){
+
+
+document.getElementById("dndBalance").innerHTML =
+dndBalance.toFixed(6)+" DND";
+
+
+document.getElementById("usdtBalance").innerHTML =
+usdtBalance.toFixed(2)+" USDT";
+
+
+document.getElementById("btcBalance").innerHTML =
+btcBalance.toFixed(6)+" BTC";
+
+
+document.getElementById("trxBalance").innerHTML =
+trxBalance.toFixed(2)+" TRX";
+
+
+document.getElementById("mineBalance").innerHTML =
+dndBalance.toFixed(6)+" DND";
+
+
+document.getElementById("mineSpeed").innerHTML =
+miningSpeed+"x";
 
 
 }
@@ -1224,36 +1911,47 @@ balance.toFixed(6)+" DND";
 
 
 
+
+
+
 function startMining(){
 
 
-if(mining) return;
+if(mining){
+
+return;
+
+}
+
 
 
 mining=true;
 
 
 
-document.getElementById("status").innerHTML =
+document.getElementById("miningStatus").innerHTML =
 "🟢 Mining Active";
 
 
 
-miningTimer=setInterval(function(){
+
+miningInterval=setInterval(function(){
 
 
-balance += 0.000069;
+
+dndBalance +=
+0.000069 * miningSpeed;
 
 
 
 localStorage.setItem(
-"DND_balance",
-balance
+"dndBalance",
+dndBalance
 );
 
 
 
-updateBalance();
+updateDashboard();
 
 
 
@@ -1268,21 +1966,26 @@ updateBalance();
 
 
 
+
+
+
 function stopMining(){
 
 
 mining=false;
 
 
-clearInterval(miningTimer);
+clearInterval(miningInterval);
 
 
 
-document.getElementById("status").innerHTML =
+document.getElementById("miningStatus").innerHTML =
 "⚪ Mining Stopped";
 
 
+
 }
+
 
 
 
@@ -1297,28 +2000,34 @@ function openPage(page){
 
 let pages=[
 
+
 "home",
+"dashboard",
 "mining",
-"wallet",
-"account",
-"boost",
+"deposit",
+"withdraw",
+"wallets",
+"exchange",
+"accelerator",
+"profile",
 "whitepaper",
 "roadmap",
-"team",
 "ecosystem",
-"analytics",
-"partners",
+"team",
+"language",
+"payments",
 "faq",
-"contact"
+"security"
+
 
 ];
 
 
 
-pages.forEach(function(item){
+pages.forEach(function(p){
 
 
-let element=document.getElementById(item);
+let element=document.getElementById(p);
 
 
 if(element){
@@ -1332,9 +2041,16 @@ element.classList.add("hidden");
 
 
 
-document.getElementById(page)
-.classList.remove("hidden");
+let current =
+document.getElementById(page);
 
+
+
+if(current){
+
+current.classList.remove("hidden");
+
+}
 
 
 }
@@ -1346,11 +2062,13 @@ document.getElementById(page)
 
 
 
+
 function createWallet(){
 
 
+
 let wallet =
-localStorage.getItem("DND_wallet");
+localStorage.getItem("dndWallet");
 
 
 
@@ -1366,7 +2084,7 @@ wallet =
 
 
 localStorage.setItem(
-"DND_wallet",
+"dndWallet",
 wallet
 );
 
@@ -1375,9 +2093,16 @@ wallet
 
 
 
-document.getElementById("walletAddress")
-.innerHTML=wallet;
+let block =
+document.getElementById("dndWallet");
 
+
+
+if(block){
+
+block.innerHTML=wallet;
+
+}
 
 
 }
@@ -1389,11 +2114,14 @@ document.getElementById("walletAddress")
 
 
 
-function createAccount(){
+
+function saveProfile(){
+
 
 
 let username =
 document.getElementById("username").value;
+
 
 
 let email =
@@ -1402,22 +2130,40 @@ document.getElementById("email").value;
 
 
 localStorage.setItem(
-"DND_username",
+"username",
 username
 );
 
 
 
 localStorage.setItem(
-"DND_email",
+"email",
 email
 );
 
 
 
-document.getElementById("accountResult")
-.innerHTML =
-"✅ Account created";
+document.getElementById("profileStatus").innerHTML =
+"✅ Profile saved";
+
+
+}
+function convertDND(){
+
+
+let amount =
+Number(document.getElementById("convertAmount").value)
+||0;
+
+
+
+let result = amount * 1;
+
+
+
+document.getElementById("convertResult").innerHTML =
+result.toFixed(2)+" USDT";
+
 
 
 }
@@ -1429,33 +2175,179 @@ document.getElementById("accountResult")
 
 
 
+
+function createWithdraw(){
+
+
+
+let amount =
+Number(document.getElementById("withdrawAmount").value)
+||0;
+
+
+
+let address =
+document.getElementById("withdrawAddress").value;
+
+
+
+if(amount < 10){
+
+
+document.getElementById("withdrawStatus").innerHTML =
+"❌ Minimum withdrawal amount: 10 USDT";
+
+
+return;
+
+}
+
+
+
+if(address.length < 10){
+
+
+document.getElementById("withdrawStatus").innerHTML =
+"❌ Enter wallet address";
+
+
+return;
+
+
+}
+
+
+
+document.getElementById("withdrawStatus").innerHTML =
+"✅ Withdrawal request created";
+
+
+}
+
+
+
+
+
+
+
+
+
+function copyUSDT(){
+
+
+navigator.clipboard.writeText(
+"TPRe3zZ7t9HgGd2ybh6k3xiCQbrCNwLeHB"
+);
+
+
+
+alert("USDT address copied");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function copyBTC(){
+
+
+navigator.clipboard.writeText(
+"bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw"
+);
+
+
+
+alert("Bitcoin address copied");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function copyTRX(){
+
+
+navigator.clipboard.writeText(
+"TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza"
+);
+
+
+
+alert("TRX address copied");
+
+
+}
+
+
+
+
+
+
+
+
+
+function changeLanguage(){
+
+
+
+let language =
+document.getElementById("languageSelect").value;
+
+
+
+document.getElementById("languageStatus").innerHTML =
+language+" selected";
+
+
+}
+
+
+
+
+
+
+
+
+
+function generateUsers(){
+
+
 let users =
-Number(localStorage.getItem("DND_users"))
+Number(localStorage.getItem("users"))
 ||247382;
 
 
 
-
-function updateUsers(){
-
-
-let increase =
-Math.floor(Math.random()*101)+200;
-
-
-
-users += increase;
+users += Math.floor(
+Math.random()*101
+)+200;
 
 
 
 localStorage.setItem(
-"DND_users",
+"users",
 users
 );
 
 
 
-let block=document.getElementById("users");
+let block =
+document.getElementById("users");
+
 
 
 if(block){
@@ -1474,76 +2366,16 @@ users.toLocaleString();
 
 
 
+
+
+
 setInterval(function(){
 
-updateUsers();
+
+generateUsers();
+
 
 },3600000);
-
-
-
-
-
-
-
-
-
-function copyBTC(){
-
-
-navigator.clipboard.writeText(
-
-"bc1qtayp2j8vadan0wg6s9dj8u4p85a0gh7mautwlw"
-
-);
-
-
-alert("Bitcoin address copied");
-
-
-}
-
-
-
-
-
-
-
-function copyTRX(){
-
-
-navigator.clipboard.writeText(
-
-"TCxb4SZ8d1PVhoYmmaCGVJbkA54gutMhza"
-
-);
-
-
-alert("TRX address copied");
-
-
-}
-
-
-
-
-
-
-
-function copyUSDT(){
-
-
-navigator.clipboard.writeText(
-
-"TPRe3zZ7t9HgGd2ybh6k3xiCQbrCNwLeHB"
-
-);
-
-
-alert("USDT TRC20 address copied");
-
-
-}
 
 
 
@@ -1559,10 +2391,11 @@ function init(){
 createWallet();
 
 
-updateBalance();
+updateDashboard();
 
 
-updateUsers();
+generateUsers();
+
 
 
 }
@@ -1574,8 +2407,123 @@ init();
 
 
 </script>
+<footer class="card">
+
+
+<h2>
+🌐 Digital Network Dynamics
+</h2>
+
+
+<p>
+Building the future of digital ecosystems,
+technology and Web3 innovation.
+</p>
+
+
+
+<div class="grid">
+
+
+
+<div class="stat">
+
+<h3>
+📘 Documentation
+</h3>
+
+
+<p>
+Whitepaper, Roadmap and Ecosystem information.
+</p>
+
+
+</div>
+
+
+
+
+<div class="stat">
+
+<h3>
+👥 Community
+</h3>
+
+
+<p>
+Connect with DND users and follow development.
+</p>
+
+
+</div>
+
+
+
+
+<div class="stat">
+
+<h3>
+🚀 Development
+</h3>
+
+
+<p>
+Continuous improvement of the DND platform.
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<h3>
+Available Languages
+</h3>
+
+
+<p>
+🇬🇧 English |
+🇨🇳 Chinese |
+🇪🇸 Spanish |
+🇵🇱 Polish |
+🇫🇷 French
+</p>
+
+
+
+
+
+<h3>
+Future Payment Expansion
+</h3>
+
+
+<p>
+PayPal, VISA and Mastercard integrations
+are planned for future platform development.
+</p>
+
+
+
+<p>
+
+© 2026 Digital Network Dynamics
+
+</p>
+
+
+
+</footer>
+</div>
 
 
 </body>
+
 
 </html>
