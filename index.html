@@ -378,16 +378,20 @@ Digital Network Dynamics © 2026
 <h3>Balance</h3>
 
 <p style="font-size:40px;">
+<p id="balance" style="font-size:40px;">
 0.000000 DND
+</p>
 </p>
 
 <h3>Mining Status</h3>
 
 <p>
+<p id="miningStatus">
 Inactive
 </p>
+</p>
 
-<button>
+<button onclick="startMining()">
 START MINING
 </button>
 
@@ -400,5 +404,33 @@ DND-XXXX-XXXX
 </div>
 
 </section>
+<script>
+
+let balance = 0;
+let mining = false;
+let speed = 0.25;
+
+function startMining(){
+
+    if(mining){
+        return;
+    }
+
+    mining = true;
+
+    document.querySelector("#miningStatus").innerHTML = "Active";
+
+    setInterval(function(){
+
+        balance += speed / 3600;
+
+        document.querySelector("#balance").innerHTML =
+        balance.toFixed(6) + " DND";
+
+    },1000);
+
+}
+
+</script>
 </body>
 </html>
