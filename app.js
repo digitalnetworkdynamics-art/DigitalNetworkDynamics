@@ -1,62 +1,55 @@
-// DND APP CORE
+// DND DIGITAL NETWORK DYNAMICS
+// CORE SYSTEM
 
-let dndBalance = Number(localStorage.getItem("dndBalance")) || 0;
 
-let balances = {
+const defaultData = {
 
-DND: dndBalance,
+DND:0,
 
-USDT: Number(localStorage.getItem("usdt")) || 0,
+USDT:0,
 
-BTC: Number(localStorage.getItem("btc")) || 0,
+BTC:0,
 
-TRX: Number(localStorage.getItem("trx")) || 0
+ETH:0,
+
+TRX:0,
+
+transactions:[],
+
+language:"en",
+
+miningTime:0,
+
+miningLevel:1,
+
+miningSpeed:0.01
 
 };
 
 
-let transactions = JSON.parse(
-localStorage.getItem("transactions")
-) || [];
 
 
-let mining = false;
 
-let miningSpeed = 0.01;
+let walletData =
+JSON.parse(
+localStorage.getItem("DND_DATA")
+)
+||
+defaultData;
 
-let miningTimer = null;
+
+
 
 
 
 function saveData(){
 
 localStorage.setItem(
-"dndBalance",
-balances.DND
-);
 
+"DND_DATA",
 
-localStorage.setItem(
-"usdt",
-balances.USDT
-);
+JSON.stringify(walletData)
 
-
-localStorage.setItem(
-"btc",
-balances.BTC
-);
-
-
-localStorage.setItem(
-"trx",
-balances.TRX
-);
-
-
-localStorage.setItem(
-"transactions",
-JSON.stringify(transactions)
 );
 
 }
@@ -65,100 +58,296 @@ JSON.stringify(transactions)
 
 
 
-// переключение разделов
+// PAGE SYSTEM
+// reload navigation
 
-function showSection(id){
 
-let pages = document.querySelectorAll(".page");
+
+function openPage(page){
+
+
+window.location.hash = page;
+
+
+location.reload();
+
+
+}
+
+
+
+
+
+
+function loadPage(){
+
+
+let current =
+
+window.location.hash.replace("#","")
+||
+"home";
+
+
+
+let pages =
+document.querySelectorAll(".page");
+
 
 
 pages.forEach(function(page){
 
+
 page.classList.add("hidden");
+
 
 });
 
 
-let section = document.getElementById(id);
 
 
-if(section){
+let active =
+document.getElementById(current);
 
-section.classList.remove("hidden");
+
+
+if(active){
+
+
+active.classList.remove("hidden");
+
 
 }
 
 }
-// WALLET UPDATE
+
+
+
+window.addEventListener(
+
+"load",
+
+loadPage
+
+);
+
+
+
+
+
+// LANGUAGE SAVE
+
+
+let languageSelect =
+document.getElementById(
+"languageSelect"
+);
+
+
+
+if(languageSelect){
+
+
+languageSelect.value =
+walletData.language;
+
+
+
+languageSelect.addEventListener(
+
+"change",
+
+function(){
+
+
+walletData.language =
+this.value;
+
+
+saveData();
+
+
+}
+
+);
+
+
+}
+// WALLET SYSTEM
+
+
 
 function updateWallet(){
 
 
-let dnd = document.getElementById("dndBalance");
 
-let usdt = document.getElementById("usdtBalance");
+let dnd =
+document.getElementById(
+"dndBalance"
+);
 
-let btc = document.getElementById("btcBalance");
 
-let trx = document.getElementById("trxBalance");
+
+let usdt =
+document.getElementById(
+"usdtBalance"
+);
+
+
+
+let btc =
+document.getElementById(
+"btcBalance"
+);
+
+
+
+let eth =
+document.getElementById(
+"ethBalance"
+);
+
+
+
+let trx =
+document.getElementById(
+"trxBalance"
+);
+
+
+
 
 
 
 if(dnd){
 
-dnd.innerHTML = balances.DND.toFixed(4);
+dnd.innerHTML =
+walletData.DND.toFixed(4);
 
 }
+
 
 
 
 if(usdt){
 
-usdt.innerHTML = balances.USDT.toFixed(2);
+usdt.innerHTML =
+walletData.USDT.toFixed(2);
 
 }
+
 
 
 
 if(btc){
 
-btc.innerHTML = balances.BTC.toFixed(6);
+btc.innerHTML =
+walletData.BTC.toFixed(6);
 
 }
+
+
+
+
+if(eth){
+
+eth.innerHTML =
+walletData.ETH.toFixed(6);
+
+}
+
 
 
 
 if(trx){
 
-trx.innerHTML = balances.TRX.toFixed(2);
+trx.innerHTML =
+walletData.TRX.toFixed(2);
 
 }
 
 
+
+
 }
 
 
 
 
+
+// FORCE CLEAN OLD TEST BONUSES
+
+
+function resetDemoBalances(){
+
+
+walletData.USDT = 0;
+
+walletData.BTC = 0;
+
+walletData.ETH = 0;
+
+walletData.TRX = 0;
+
+
+saveData();
+
+
+updateWallet();
+
+
+}
+
+
+
+
+// RUN UPDATE
+
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+
+updateWallet();
+
+
+}
+
+);
 // MINING SYSTEM
+
+
+let miningActive = false;
+
+let miningInterval = null;
+
+
+
 
 
 function startMining(){
 
 
-if(mining){
+
+if(miningActive){
 
 return;
 
 }
 
 
-mining = true;
+
+miningActive = true;
 
 
 
 let status =
-document.getElementById("miningStatus");
+document.getElementById(
+"miningStatus"
+);
 
 
 
@@ -166,20 +355,49 @@ if(status){
 
 status.innerHTML = "ACTIVE";
 
+status.className =
+"status-active";
+
 }
 
 
 
-miningTimer = setInterval(function(){
+
+miningInterval = setInterval(function(){
 
 
-balances.DND += miningSpeed;
+
+walletData.DND += 
+walletData.miningSpeed;
+
+
+
+walletData.miningTime += 1;
+
+
+
+// повышение уровня
+
+
+if(walletData.DND >= walletData.miningLevel * 100){
+
+
+walletData.miningLevel++;
+
+
+}
+
+
+
 
 
 saveData();
 
 
 updateWallet();
+
+
+updateMiningInfo();
 
 
 
@@ -192,22 +410,30 @@ updateWallet();
 
 
 
+
 function stopMining(){
 
 
-mining = false;
+
+miningActive = false;
 
 
 
-if(miningTimer){
+if(miningInterval){
 
-clearInterval(miningTimer);
+
+clearInterval(miningInterval);
+
 
 }
 
 
+
+
 let status =
-document.getElementById("miningStatus");
+document.getElementById(
+"miningStatus"
+);
 
 
 
@@ -215,110 +441,187 @@ if(status){
 
 status.innerHTML = "OFF";
 
+status.className =
+"status-off";
+
 }
 
 
+
 }
 
 
 
 
-function addTransaction(type,amount){
 
 
-transactions.push({
+function updateMiningInfo(){
 
-type:type,
 
-amount:amount,
 
-date:new Date().toLocaleString()
+let speed =
+document.getElementById(
+"miningSpeed"
+);
 
-});
+
+
+let time =
+document.getElementById(
+"miningTime"
+);
+
+
+
+let level =
+document.getElementById(
+"miningLevel"
+);
+
+
+
+
+if(speed){
+
+speed.innerHTML =
+walletData.miningSpeed.toFixed(3)
++
+" DND / sec";
+
+}
+
+
+
+
+if(time){
+
+time.innerHTML =
+walletData.miningTime
++
+" seconds";
+
+}
+
+
+
+
+if(level){
+
+level.innerHTML =
+walletData.miningLevel;
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+function boostMining(){
+
+
+
+walletData.miningSpeed += 0.01;
+
 
 
 saveData();
 
-updateHistory();
+
+
+updateMiningInfo();
+
 
 
 }
 
 
 
+window.addEventListener(
+
+"load",
+
+function(){
 
 
-// HISTORY
+updateMiningInfo();
 
-
-function updateHistory(){
-
-
-let box =
-document.getElementById("transactionHistory");
-
-
-
-if(!box){
-
-return;
 
 }
 
-
-
-if(transactions.length===0){
-
-box.innerHTML =
-"No transactions yet";
-
-return;
-
-}
+);
+// EXCHANGE SYSTEM
 
 
 
-box.innerHTML = "";
+function addTransaction(type, amount){
 
 
-transactions.reverse().forEach(function(tx){
+
+walletData.transactions.push({
 
 
-box.innerHTML += `
+type:type,
 
-<div class="transaction">
 
-<span>${tx.type}</span>
+amount:amount,
 
-<span>${tx.amount}</span>
 
-<span>${tx.date}</span>
-
-</div>
-
-`;
+date:new Date().toLocaleString()
 
 
 });
 
 
+
+saveData();
+
+
+
+updateHistory();
+
+
+
 }
-// EXCHANGE SYSTEM
+
+
+
+
+
+
 
 
 function exchangeCurrency(){
 
 
+
 let from =
-document.getElementById("fromCurrency").value;
+document.getElementById(
+"exchangeFrom"
+).value;
+
 
 
 let to =
-document.getElementById("toCurrency").value;
+document.getElementById(
+"exchangeTo"
+).value;
+
 
 
 let amount =
-Number(document.getElementById("exchangeAmount").value);
+Number(
+document.getElementById(
+"exchangeAmount"
+).value
+);
+
+
 
 
 
@@ -330,44 +633,45 @@ return;
 
 
 
-if(balances[from] < amount){
+
+if(walletData[from] < amount){
 
 
-let msg =
-document.getElementById("exchangeMessage");
-
-
-if(msg){
-
-msg.innerHTML =
-"Not enough balance";
-
-}
+showExchangeMessage(
+"Not enough balance"
+);
 
 
 return;
 
+
 }
 
 
 
 
-// простой тестовый курс
-
-let result = amount;
-
+// TEST RATE SYSTEM
+// позже подключим реальные курсы
 
 
-balances[from] -= amount;
+
+walletData[from] -= amount;
 
 
-balances[to] += result;
+walletData[to] += amount;
+
 
 
 
 addTransaction(
 
-"Exchange " + from + " → " + to,
+"Exchange " 
++
+from
++
+" → "
++
+to,
 
 amount
 
@@ -379,17 +683,10 @@ updateWallet();
 
 
 
-let msg =
-document.getElementById("exchangeMessage");
+showExchangeMessage(
+"Exchange completed"
+);
 
-
-
-if(msg){
-
-msg.innerHTML =
-"Exchange completed";
-
-}
 
 
 }
@@ -398,17 +695,56 @@ msg.innerHTML =
 
 
 
-// DEPOSIT
-
-
-function depositDND(amount){
-
-
-amount = Number(amount);
 
 
 
-if(!amount){
+function showExchangeMessage(text){
+
+
+
+let box =
+document.getElementById(
+"exchangeMessage"
+);
+
+
+
+if(box){
+
+box.innerHTML = text;
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// HISTORY DISPLAY
+
+
+
+
+function updateHistory(){
+
+
+
+let box =
+document.getElementById(
+"transactionHistory"
+);
+
+
+
+
+if(!box){
 
 return;
 
@@ -416,13 +752,163 @@ return;
 
 
 
-balances.DND += amount;
+
+if(walletData.transactions.length === 0){
+
+
+box.innerHTML =
+"No transactions yet";
+
+
+return;
+
+
+}
+
+
+
+
+box.innerHTML = "";
+
+
+
+
+walletData.transactions
+.slice()
+.reverse()
+.forEach(function(tx){
+
+
+
+box.innerHTML += `
+
+
+<div class="transaction">
+
+
+<strong>
+
+${tx.type}
+
+</strong>
+
+
+<span>
+
+${tx.amount}
+
+</span>
+
+
+<small>
+
+${tx.date}
+
+</small>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+
+updateHistory();
+
+
+}
+
+);
+// WALLET ACTIONS
+
+
+
+
+const dndAddress =
+"DND-8F92-A7C4-2026";
+
+
+
+
+
+
+function copyAddress(){
+
+
+
+navigator.clipboard.writeText(
+dndAddress
+);
+
+
+
+alert(
+"Address copied"
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+function depositDND(){
+
+
+
+let input =
+document.getElementById(
+"depositAmount"
+);
+
+
+
+let amount =
+Number(input.value);
+
+
+
+
+if(!amount || amount <=0){
+
+return;
+
+}
+
+
+
+
+walletData.DND += amount;
+
 
 
 
 addTransaction(
 
-"Deposit",
+"Deposit DND",
 
 amount
 
@@ -430,9 +916,17 @@ amount
 
 
 
+saveData();
+
+
 updateWallet();
 
 
+
+input.value = "";
+
+
+
 }
 
 
@@ -440,17 +934,24 @@ updateWallet();
 
 
 
-// WITHDRAW
-
-
-function withdrawDND(amount){
-
-
-amount = Number(amount);
 
 
 
-if(!amount){
+function withdrawDND(){
+
+
+
+let amount =
+Number(
+document.getElementById(
+"withdrawAmount"
+).value
+);
+
+
+
+
+if(!amount || amount<=0){
 
 return;
 
@@ -458,21 +959,31 @@ return;
 
 
 
-if(balances.DND < amount){
+
+if(walletData.DND < amount){
+
+
+alert(
+"Insufficient DND balance"
+);
+
 
 return;
+
 
 }
 
 
 
-balances.DND -= amount;
+
+walletData.DND -= amount;
+
 
 
 
 addTransaction(
 
-"Withdraw",
+"Withdraw DND",
 
 amount
 
@@ -480,7 +991,18 @@ amount
 
 
 
+
+saveData();
+
+
 updateWallet();
+
+
+
+document.getElementById(
+"withdrawAmount"
+).value = "";
+
 
 
 }
@@ -491,10 +1013,17 @@ updateWallet();
 
 
 
-// LOAD DATA WHEN PAGE STARTS
 
 
-window.onload = function(){
+// INITIAL START
+
+
+
+window.addEventListener(
+
+"load",
+
+function(){
 
 
 updateWallet();
@@ -503,4 +1032,250 @@ updateWallet();
 updateHistory();
 
 
+updateMiningInfo();
+
+
+}
+
+);
+// FINAL SYSTEM CHECK
+
+
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+function(){
+
+
+updateWallet();
+
+
+updateHistory();
+
+
+updateMiningInfo();
+
+
+
+});
+
+
+
+
+
+
+
+// PREVENT EMPTY DATA RESET
+
+
+
+if(!localStorage.getItem("DND_DATA")){
+
+
+saveData();
+
+
+}
+
+
+
+
+
+
+
+// LANGUAGE SYSTEM PLACEHOLDER
+
+
+
+const translations = {
+
+
+en:{
+
+
+home:"Home",
+
+wallet:"Wallet",
+
+mining:"Mining",
+
+exchange:"Exchange",
+
+history:"History"
+
+
+},
+
+
+
+fr:{
+
+
+home:"Accueil",
+
+wallet:"Portefeuille",
+
+mining:"Minage",
+
+exchange:"Échange",
+
+history:"Historique"
+
+
+},
+
+
+
+zh:{
+
+
+home:"主页",
+
+wallet:"钱包",
+
+mining:"挖矿",
+
+exchange:"兑换",
+
+history:"历史"
+
+
+},
+
+
+
+pl:{
+
+
+home:"Strona główna",
+
+wallet:"Portfel",
+
+mining:"Kopanie",
+
+exchange:"Wymiana",
+
+history:"Historia"
+
+
+},
+
+
+
+es:{
+
+
+home:"Inicio",
+
+wallet:"Billetera",
+
+mining:"Minería",
+
+exchange:"Intercambio",
+
+history:"Historial"
+
+
+}
+
+
 };
+
+
+
+
+
+
+
+function changeLanguage(lang){
+
+
+
+walletData.language = lang;
+
+
+saveData();
+
+
+
+let buttons =
+document.querySelectorAll(
+".navigation button"
+);
+
+
+
+if(translations[lang]){
+
+
+
+buttons[0].innerHTML =
+translations[lang].home;
+
+
+
+buttons[1].innerHTML =
+translations[lang].wallet;
+
+
+
+buttons[2].innerHTML =
+translations[lang].mining;
+
+
+
+buttons[3].innerHTML =
+translations[lang].exchange;
+
+
+
+buttons[4].innerHTML =
+translations[lang].history;
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+let select =
+document.getElementById(
+"languageSelect"
+);
+
+
+
+if(select){
+
+
+
+select.addEventListener(
+
+"change",
+
+function(){
+
+
+
+changeLanguage(
+this.value
+);
+
+
+
+}
+
+);
+
+
+
+}
