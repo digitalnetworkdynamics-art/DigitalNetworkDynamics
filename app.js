@@ -1,3 +1,29 @@
+let currentLanguage = "en";
+
+
+const translations = {
+
+en: {
+welcome:"Welcome to DND Ecosystem",
+},
+
+fr: {
+welcome:"Bienvenue dans l'écosystème DND",
+},
+
+zh: {
+welcome:"欢迎来到DND生态系统",
+},
+
+pl: {
+welcome:"Witamy w ekosystemie DND",
+},
+
+es: {
+welcome:"Bienvenido al ecosistema DND",
+}
+
+};
 // DND MAIN APPLICATION
 
 
@@ -381,3 +407,19 @@ document.getElementById(
 
 
 }
+document
+.getElementById("languageSelect")
+.addEventListener("change", function(){
+
+currentLanguage = this.value;
+
+document.querySelector(".hero h2").innerHTML =
+translations[currentLanguage].welcome;
+
+
+localStorage.setItem(
+"DND_language",
+currentLanguage
+);
+
+});
