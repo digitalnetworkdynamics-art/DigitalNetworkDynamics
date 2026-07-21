@@ -367,3 +367,19 @@ transform:translateY(0);
 }
 
 }
+.status-box{
+
+margin-top:25px;
+
+padding:20px;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:20px;
+
+text-align:center;
+
+color:#ddd;
+
+}
