@@ -299,13 +299,98 @@ Stop Mining
 
 <section id="exchange" class="page hidden">
 
+
 <h2>
-🔄 Exchange
+🔄 DND Exchange
 </h2>
 
-<p>
-Digital asset exchange module.
-</p>
+
+
+<div class="exchange-box">
+
+
+<label>
+From
+</label>
+
+
+<select id="fromCurrency">
+
+<option value="DND">
+DND
+</option>
+
+<option value="USDT">
+USDT
+</option>
+
+<option value="BTC">
+BTC
+</option>
+
+<option value="TRX">
+TRX
+</option>
+
+
+</select>
+
+
+
+
+<label>
+To
+</label>
+
+
+<select id="toCurrency">
+
+
+<option value="USDT">
+USDT
+</option>
+
+<option value="DND">
+DND
+</option>
+
+<option value="BTC">
+BTC
+</option>
+
+<option value="TRX">
+TRX
+</option>
+
+
+</select>
+
+
+
+<input 
+id="exchangeAmount"
+type="number"
+placeholder="Amount">
+
+
+
+<button onclick="exchangeCurrency()">
+
+Exchange
+
+</button>
+
+
+
+<div id="exchangeMessage"
+class="status-box">
+
+</div>
+
+
+
+</div>
+
 
 </section>
 
