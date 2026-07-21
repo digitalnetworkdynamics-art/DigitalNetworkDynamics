@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Digital Network Dynamics</title>
+<title>DND - Digital Network Dynamics</title>
 
 <style>
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#050510;
+background:
+linear-gradient(135deg,#050014,#17002e,#090019);
 color:white;
 }
 
+
 header{
-padding:25px;
 text-align:center;
-background:linear-gradient(135deg,#11113b,#050510);
+padding:30px;
 }
+
 
 .logo{
-font-size:40px;
-font-weight:bold;
-color:#00eaff;
+font-size:55px;
+font-weight:900;
+color:#b84dff;
+text-shadow:
+0 0 20px #b84dff;
 }
 
-.subtitle{
-color:#aaa;
+
+h1{
+color:white;
 }
+
 
 nav{
 display:flex;
@@ -39,43 +50,100 @@ flex-wrap:wrap;
 padding:15px;
 }
 
+
 button{
-background:#00eaff;
+
+background:
+linear-gradient(135deg,#9d00ff,#4b00ff);
+
+color:white;
 border:none;
-padding:12px 20px;
-border-radius:10px;
+
+padding:13px 22px;
+
+border-radius:15px;
+
 font-weight:bold;
+
 cursor:pointer;
+
+box-shadow:
+0 0 15px #8f00ff;
+
 }
+
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+
 
 .card{
-background:#101020;
+
+background:
+rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+
 margin:20px;
+
 padding:25px;
-border-radius:20px;
-box-shadow:0 0 20px #000;
+
+border-radius:25px;
+
+box-shadow:
+0 0 30px rgba(160,0,255,0.3);
+
 }
 
-.balance{
-font-size:40px;
-color:#00eaff;
-}
-
-.status{
-color:#00ff88;
-font-size:22px;
-}
 
 .hidden{
+
 display:none;
+
 }
 
-input{
-padding:12px;
-border-radius:10px;
-border:none;
-width:80%;
+
+
+.balance{
+
+font-size:45px;
+
+color:#d47aff;
+
+font-weight:bold;
+
 }
+
+
+
+.active{
+
+color:#00ff99;
+
+font-size:22px;
+
+}
+
+
+input{
+
+width:90%;
+
+padding:12px;
+
+border-radius:10px;
+
+border:none;
+
+margin:8px;
+
+}
+
+
 
 </style>
 
@@ -95,8 +163,8 @@ DND
 Digital Network Dynamics
 </h1>
 
-<p class="subtitle">
-Next Generation Digital Economy
+<p>
+Future Web3 Mining Ecosystem
 </p>
 
 </header>
@@ -104,14 +172,27 @@ Next Generation Digital Economy
 
 <nav>
 
-<button onclick="show('home')">Home</button>
-<button onclick="show('mining')">Mining</button>
-<button onclick="show('wallet')">Wallet</button>
-<button onclick="show('profile')">Profile</button>
-<button onclick="show('support')">Support</button>
+<button onclick="openPage('home')">
+Home
+</button>
+
+<button onclick="openPage('mining')">
+Mining
+</button>
+
+<button onclick="openPage('wallet')">
+Wallet
+</button>
+
+<button onclick="openPage('profile')">
+Profile
+</button>
+
+<button onclick="openPage('support')">
+Support
+</button>
 
 </nav>
-
 
 
 <div id="home" class="card">
@@ -121,16 +202,10 @@ Welcome to DND
 </h2>
 
 <p>
-Digital Network Dynamics is a next generation Web3 ecosystem.
-</p>
-
-<p>
-Your digital journey starts here.
+Digital Network Dynamics is building the future digital economy.
 </p>
 
 </div>
-
-
 
 
 <div id="mining" class="card hidden">
@@ -139,9 +214,8 @@ Your digital journey starts here.
 ⛏ DND Mining
 </h2>
 
-
 <p>
-Balance:
+Balance
 </p>
 
 <div id="balance" class="balance">
@@ -150,10 +224,10 @@ Balance:
 
 
 <p>
-Mining status:
+Status:
 </p>
 
-<div id="status" class="status">
+<div id="status">
 Inactive
 </div>
 
@@ -170,7 +244,60 @@ START MINING
 
 
 <button onclick="stopMining()">
-STOP
+STOP MINING
+</button>
+
+
+</div>
+<div id="wallet" class="card hidden">
+
+<h2>
+💼 DND Wallet
+</h2>
+
+<p>
+Wallet Address:
+</p>
+
+<h3 id="walletAddress">
+Generating...
+</h3>
+
+</div>
+
+
+
+<div id="profile" class="card hidden">
+
+<h2>
+👤 Personal Cabinet
+</h2>
+
+<p>
+DND ID:
+</p>
+
+<h3 id="userID">
+</h3>
+
+
+<p>
+Email:
+</p>
+
+<h3 id="userEmail">
+Not registered
+</h3>
+
+
+<input id="emailInput" placeholder="Enter your email">
+
+
+<br>
+
+
+<button onclick="registerUser()">
+REGISTER
 </button>
 
 
@@ -178,57 +305,23 @@ STOP
 
 
 
-
-<div id="wallet" class="card hidden">
-
-<h2>
-💼 Wallet
-</h2>
-
-<p>
-Wallet Address:
-</p>
-
-<p id="walletAddress">
-Generating...
-</p>
-
-</div>
-
-
-
-
-<div id="profile" class="card hidden">
-
-<h2>
-👤 Profile
-</h2>
-
-<p>
-User ID:
-</p>
-
-<p id="userID">
-</p>
-
-</div>
-
-
-
-
 <div id="support" class="card hidden">
 
 <h2>
-Support
+📩 Support
 </h2>
+
 
 <p>
 Email:
-digitalnetworkdynamics@gmail.com
 </p>
 
-</div>
+<h3>
+digitalnetworkdynamics@gmail.com
+</h3>
 
+
+</div>
 
 
 
@@ -240,11 +333,12 @@ Number(localStorage.getItem("DND_balance")) || 0;
 
 
 let mining=false;
-let timer;
+
+let miningTimer;
 
 
 
-function update(){
+function updateBalance(){
 
 document.getElementById("balance").innerHTML =
 balance.toFixed(6)+" DND";
@@ -255,8 +349,10 @@ balance.toFixed(6)+" DND";
 
 function startMining(){
 
-if(mining)
+
+if(mining){
 return;
+}
 
 
 mining=true;
@@ -266,7 +362,12 @@ document.getElementById("status").innerHTML=
 "ACTIVE";
 
 
-timer=setInterval(function(){
+document.getElementById("status").className=
+"active";
+
+
+
+miningTimer=setInterval(function(){
 
 
 balance +=0.000069;
@@ -278,7 +379,8 @@ balance
 );
 
 
-update();
+updateBalance();
+
 
 
 },1000);
@@ -291,18 +393,22 @@ update();
 
 function stopMining(){
 
+
 mining=false;
 
-clearInterval(timer);
+
+clearInterval(miningTimer);
+
 
 document.getElementById("status").innerHTML=
 "Inactive";
+
 
 }
 
 
 
-function show(page){
+function openPage(page){
 
 
 let pages=[
@@ -314,9 +420,9 @@ let pages=[
 ];
 
 
-pages.forEach(function(p){
+pages.forEach(function(item){
 
-document.getElementById(p)
+document.getElementById(item)
 .classList.add("hidden");
 
 });
@@ -330,19 +436,58 @@ document.getElementById(page)
 
 
 
+function createWallet(){
+
+
+let wallet =
+localStorage.getItem("DND_wallet");
+
+
+if(!wallet){
+
+
+wallet =
+"DND-"+Math.random()
+.toString(36)
+.substring(2,14)
+.toUpperCase();
+
+
+
+localStorage.setItem(
+"DND_wallet",
+wallet
+);
+
+
+}
+
+
+document.getElementById("walletAddress")
+.innerHTML=
+wallet;
+
+
+}
+
+
 
 function createID(){
 
-let id=
+
+let id =
 localStorage.getItem("DND_ID");
 
 
 if(!id){
 
-id="DND-"+Math.random()
+
+id =
+"DND-"+Math.random()
 .toString(36)
 .substring(2,10)
 .toUpperCase();
+
 
 
 localStorage.setItem(
@@ -350,7 +495,9 @@ localStorage.setItem(
 id
 );
 
+
 }
+
 
 
 document.getElementById("userID")
@@ -361,45 +508,73 @@ document.getElementById("userID")
 
 
 
-function createWallet(){
+function registerUser(){
 
 
-let wallet=
-localStorage.getItem("DND_wallet");
+let email =
+document.getElementById("emailInput")
+.value;
 
 
-if(!wallet){
-
-wallet=
-"DND-"+Math.random()
-.toString(36)
-.substring(2,14)
-.toUpperCase();
+if(email){
 
 
 localStorage.setItem(
-"DND_wallet",
-wallet
+"DND_email",
+email
 );
 
+
+document.getElementById("userEmail")
+.innerHTML=email;
+
+
+alert("Registration completed");
+
+
 }
 
 
-document.getElementById("walletAddress")
-.innerHTML=wallet;
+}
+
+
+
+function loadUser(){
+
+
+let email =
+localStorage.getItem("DND_email");
+
+
+if(email){
+
+
+document.getElementById("userEmail")
+.innerHTML=email;
 
 
 }
 
 
 
-update();
-createID();
+updateBalance();
+
 createWallet();
+
+createID();
+
+
+}
+
+
+
+loadUser();
 
 
 </script>
 
 
+
 </body>
+
 </html>
